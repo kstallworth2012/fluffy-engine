@@ -1,4 +1,4 @@
-package com.project.projectmanager.repositories;
+package com.insurance.insuranceApplication.repositories;
 
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
