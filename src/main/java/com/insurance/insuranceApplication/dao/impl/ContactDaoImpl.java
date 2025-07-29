@@ -1,22 +1,23 @@
 package com.insurance.insuranceApplication.dao.impl;
 
 
-import com.insurance.insuranceApplication.dao.ContactDao;
+// import com.insurance.insuranceApplication.dao.ContactDao;
 
-import org.springframework.jdbc.core.JdbcTemplate;
-
-
-public class ContactDaoImpl implements ContactDao{
+// import org.springframework.jdbc.core.JdbcTemplate;
 
 
-
-private Final JdbcTemplate jdbcTemplate;
+public class ContactDaoImpl{}
+//  implements ContactDao{
 
 
 
-public ContactDaoImpl(Final JdbcTemplate _jdbcTemplate){
+// private Final JdbcTemplate jdbcTemplate;
 
-			this.jdbcTemplate = _jdbcTemplate;
-		}
 
-}
+
+// public ContactDaoImpl(Final JdbcTemplate _jdbcTemplate){
+
+// 			this.jdbcTemplate = _jdbcTemplate;
+// 		}
+
+// }

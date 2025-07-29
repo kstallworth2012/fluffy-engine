@@ -1,22 +1,23 @@
 package com.insurance.insuranceApplication.dao.impl;
 
 
-import com.insurance.insuranceApplication.dao.CommercialPolicyDao;
+// import com.insurance.insuranceApplication.dao.CommercialPolicyDao;
 
-import org.springframework.jdbc.core.JdbcTemplate;
-
-
-public class CommercialPolicyDaoImpl implements CommercialPolicyDao{
+// import org.springframework.jdbc.core.JdbcTemplate;
 
 
-
-private Final JdbcTemplate jdbcTemplate;
+public class CommercialPolicyDaoImpl{}
+//  implements CommercialPolicyDao{
 
 
 
-public CommercialPolicyDaoImpl(Final JdbcTemplate _jdbcTemplate){
+// private Final JdbcTemplate jdbcTemplate;
 
-			this.jdbcTemplate = _jdbcTemplate;
-		}
 
-}
+
+// public CommercialPolicyDaoImpl(Final JdbcTemplate _jdbcTemplate){
+
+// 			this.jdbcTemplate = _jdbcTemplate;
+// 		}
+
+// }

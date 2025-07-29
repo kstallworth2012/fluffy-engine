@@ -2,16 +2,16 @@ package com.insurance.insuranceApplication.config;
 
 
 
-import org.modelMapper.ModelMapper;
-import org.springframeworkk.context.annotation.Bean;
-import org.springframeworkk.context.annotation.Configuration;
+// import org.modelMapper.ModelMapper;
+// import org.springframeworkk.context.annotation.Bean;
+// import org.springframeworkk.context.annotation.Configuration;
 
 
-@Configuration
-public class MapperConfig{
+// @Configuration
+// public class MapperConfig{
 
-	@Bean 
-	public ModelMapper modelMapper(){
-		return new ModelMapper();
-	}
-}
+// 	@Bean 
+// 	public ModelMapper modelMapper(){
+// 		return new ModelMapper();
+// 	}
+// }

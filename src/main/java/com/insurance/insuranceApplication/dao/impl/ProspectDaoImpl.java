@@ -1,21 +1,22 @@
 package com.insurance.insuranceApplication.dao.impl;
 
-import com.insurance.insuranceApplication.dao.ProspectDao;
+// import com.insurance.insuranceApplication.dao.ProspectDao;
 
-import org.springframework.jdbc.core.JdbcTemplate;
-
-
-public class ProspectDaoImpl implements ProspectDao{
+// import org.springframework.jdbc.core.JdbcTemplate;
 
 
-
-private Final JdbcTemplate jdbcTemplate;
+public class ProspectDaoImpl{}
+//  implements ProspectDao{
 
 
 
-public ProspectDaoImpl(Final JdbcTemplate _jdbcTemplate){
+// private Final JdbcTemplate jdbcTemplate;
 
-			this.jdbcTemplate = _jdbcTemplate;
-		}
 
-}
+
+// public ProspectDaoImpl(Final JdbcTemplate _jdbcTemplate){
+
+// 			this.jdbcTemplate = _jdbcTemplate;
+// 		}
+
+// }

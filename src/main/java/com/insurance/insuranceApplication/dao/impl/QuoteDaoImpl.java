@@ -1,21 +1,22 @@
 package com.insurance.insuranceApplication.dao.impl;
 
-import com.insurance.insuranceApplication.dao.QuoteDao;
+// import com.insurance.insuranceApplication.dao.QuoteDao;
 
-import org.springframework.jdbc.core.JdbcTemplate;
-
-
-public class QuoteDaoImpl implements QuoteDao{
+// import org.springframework.jdbc.core.JdbcTemplate;
 
 
-
-private Final JdbcTemplate jdbcTemplate;
+public class QuoteDaoImpl{}
+//  implements QuoteDao{
 
 
 
-public QuoteDaoImpl(Final JdbcTemplate _jdbcTemplate){
+// private Final JdbcTemplate jdbcTemplate;
 
-			this.jdbcTemplate = _jdbcTemplate;
-		}
 
-}
+
+// public QuoteDaoImpl(Final JdbcTemplate _jdbcTemplate){
+
+// 			this.jdbcTemplate = _jdbcTemplate;
+// 		}
+
+// }

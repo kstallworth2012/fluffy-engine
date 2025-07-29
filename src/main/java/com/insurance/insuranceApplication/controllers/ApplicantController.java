@@ -4,42 +4,38 @@ package com.insurance.insuranceApplication.controllers;
 
 
 
-import com.insurance.insuranceApplication.services._____
-import com.insurance.insuranceApplication.domain.dto._______
-import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestBody; 
-import org.springframework.web.bind.annotation.ResponseStatus;
-import org.springframework.web.server.ResponseStatusException;
-import jakarta.validation.Valid;
-import org.springframework.http.HttpStatus;
-import java.util.ArrayList; 
-import java.util.List; 
-import java.util.Optional;
+// import com.insurance.insuranceApplication.services._____
+// import com.insurance.insuranceApplication.domain.dto._______
+// import org.springframework.web.bind.annotation.RestController;
+// import org.springframework.web.bind.annotation.GetMapping;
+// import org.springframework.web.bind.annotation.PostMapping;
+// import org.springframework.web.bind.annotation.PutMapping;
+// import org.springframework.web.bind.annotation.DeleteMapping;
+// import org.springframework.web.bind.annotation.RequestMapping;
+// import org.springframework.web.bind.annotation.RestController;
+// import org.springframework.web.bind.annotation.PathVariable;
+// import org.springframework.web.bind.annotation.RequestBody; 
+// import org.springframework.web.bind.annotation.ResponseStatus;
+// import org.springframework.web.server.ResponseStatusException;
+// import jakarta.validation.Valid;
+// import org.springframework.http.HttpStatus;
+// import java.util.ArrayList; 
+// import java.util.List; 
+// import java.util.Optional;
 
 
 
 
-@RestController
-@RequestMapping("/api/___") 
-public class ____Controller{
+// @RestController
+// @RequestMapping("/api/___") 
+// public class ____Controller{
 
 
 
-private ___Service ___Service;
+// private ___Service ___Service;
 
 
-public ____Controller(___Service _---service)
-{
-
-    this._____Service = _---service;
-}
+public class ApplicantController{}
 /*
 //find all members in all projects
 //@GetMapping("api/tasks")
@@ -66,15 +62,15 @@ if(_.isEmpty()){
 */
 
 
-//post
-@ResponseStatus(HttpStatus.CREATED)  //201 status
-@PostMapping("")
-public ______Dto create_____(@RequestBody ____Dto _-----DTO){
+// //post
+// @ResponseStatus(HttpStatus.CREATED)  //201 status
+// @PostMapping("")
+// public ______Dto create_____(@RequestBody ____Dto _-----DTO){
 
-    return ______Service.create(_-----DTO);
+//     return ______Service.create(_-----DTO);
 
 
-}
+// }
 
 
 /*
@@ -98,4 +94,4 @@ void delete__(@RequestBody Object _object ,Integer _id){
 
 }
 */
-}
+// }

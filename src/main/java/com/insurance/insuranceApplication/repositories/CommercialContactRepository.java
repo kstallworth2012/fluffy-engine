@@ -1,7 +1,8 @@
 package com.insurance.insuranceApplication.repositories;
 
-import org.springframework.data.repository.CrudRepository;
-import org.springframework.stereotype.Repository;
+// import org.springframework.data.repository.CrudRepository;
+// import org.springframework.stereotype.Repository;
 
-@Repository
-public interface CommercialContactRepository extends CrudRepository<CommercialContact,Long>{}
+// @Repository
+public interface CommercialContactRepository{}
+//  extends CrudRepository<CommercialContact,Long>{}

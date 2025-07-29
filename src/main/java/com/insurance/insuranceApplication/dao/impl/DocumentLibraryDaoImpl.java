@@ -1,21 +1,23 @@
 package com.insurance.insuranceApplication.dao.impl;
 
-import com.insurance.insuranceApplication.dao.DocumentLibraryDao;
+// import com.insurance.insuranceApplication.dao.DocumentLibraryDao;
 
-import org.springframework.jdbc.core.JdbcTemplate;
-
-
-public class DocumentLibraryDaoImpl implements DocumentLibraryDao{
+// import org.springframework.jdbc.core.JdbcTemplate;
 
 
+public class DocumentLibraryDaoImpl{}
 
-private Final JdbcTemplate jdbcTemplate;
+//} implements DocumentLibraryDao{
 
 
 
-public DocumentLibraryDaoImpl(Final JdbcTemplate _jdbcTemplate){
+// private Final JdbcTemplate jdbcTemplate;
 
-			this.jdbcTemplate = _jdbcTemplate;
-		}
 
-}
+
+// public DocumentLibraryDaoImpl(Final JdbcTemplate _jdbcTemplate){
+
+// 			this.jdbcTemplate = _jdbcTemplate;
+// 		}
+
+// }
