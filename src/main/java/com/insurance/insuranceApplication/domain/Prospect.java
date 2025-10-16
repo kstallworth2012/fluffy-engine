@@ -1,23 +1,28 @@
 package com.insurance.insuranceApplication.domain;
 
 
-// import lombok.AllArgsConstructor;
-// import lombok.Builder;
-// import lombok.Data;
-// import lombok.NoArgsConstructor;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Table;
+import jakarta.persistence.Id;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+import java.time.LocalDateTime;
+import java.time.LocalDate;
 
-// @Data
-// @AllArgsConstructor
-// @NoArgsConstructor
-// @Builder
-// @Entity
-// @Table(name="prospect")
-public class Prospect{}
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
+@Entity
+@Table(name="prospect")
+public class Prospect{
 
 
-// 	// @Id
+	@Id
 // 	// @GeneratedValue(strategy =GenerationType.SEQUENCE,generator= "_id_seq)
-// 	private Long id;
+	private Long prospect_id;
 	
 
 
@@ -40,14 +45,14 @@ public class Prospect{}
 //     // },
      
 
-//      private Date DOB;//": "07/14/1978",
-//      private String Gender;//": "Male",
-//      private String MaritalStatus;//": "Married",
-//      private String Prefix;//": "MR",
-//      private String Suffix;//": "SR",
-//      private Integer  SSN;//": "",
-//      private String AutoRiskData;//": null,
-//      private String HomeRiskData;// ";: null,
+     private LocalDate DOB;//": "07/14/1978",
+     private String Gender;//": "Male",
+     private String MaritalStatus;//": "Married",
+     private String Prefix;//": "MR",
+     private String Suffix;//": "SR",
+     private Integer SSN;//": "",
+     private String AutoRiskData;//": null,
+     private String HomeRiskData;// ";: null,
 
 // /*
 //     private static final class Address {
@@ -62,19 +67,20 @@ public class Prospect{}
 
 
 
-//     private boolean IsCommercial;//": false,
-//     private Integer AssignedUserID;//": 0,
-//     private String AssignedUsername;//": "",
-//     //Applicant "ApplicantID": {{EZLynxApplicantID}},
-//     private Integer OpportunitiesCount;//": 0,
-//     private String StatusID; //": "Valid",
+    private boolean IsCommercial;//": false,
+    private Integer AssignedUserID;//": 0,
+    private String AssignedUsername;//": "",
+     //@JoinColumn
+    //private Applicant "ApplicantID": {{EZLynxApplicantID}},
+    private Integer OpportunitiesCount;//": 0,
+    private String StatusID; //": "Valid",
 //     private String Notes; //": "This is a test message",
 //     // "LeadChannelID": {{SalesCenterAPI.Enumerables.Channel.ID}},
 //     // "ProspectListID": {{SalesCenterAPI.ProspectList.Personal.TestID}},
-//     private LoaclDateTime XDate;//": "2017-10-01T00:00:00"
+    private LocalDateTime XDate;//": "2017-10-01T00:00:00"
 
 // */
 
 
 
-// }
+}
