@@ -9,6 +9,12 @@ import lombok.NoArgsConstructor;
 
 import java.time.LocalDateTime;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
+
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
@@ -18,7 +24,7 @@ import java.time.LocalDateTime;
 public class Policy{
 
  	@Id
-// 	// @GeneratedValue(strategy =GenerationType.SEQUENCE,generator= "policy_id_seq)
+ 	@GeneratedValue(strategy =GenerationType.SEQUENCE,generator= "policy_id_seq")
 	private Long policy_id;
 
 

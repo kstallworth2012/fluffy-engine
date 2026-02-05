@@ -1,33 +1,40 @@
 package com.insurance.insuranceApplication.domain;
 
 
-// import lombok.AllArgsConstructor;
-// import lombok.Builder;
-// import lombok.Data;
-// import lombok.NoArgsConstructor;
-// import java.time.LocalDateTime;
+ import lombok.AllArgsConstructor;
+ import lombok.Builder;
+ import lombok.Data;
+ import lombok.NoArgsConstructor;
+ import java.time.LocalDateTime;
+
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
 
 
 
 
-// @Data
-// @AllArgsConstructor
-// @NoArgsConstructor
-// @Builder
-// @Entity
-// @Table(name="opportunity")
-public class Opportunity {}
+ @Data
+ @AllArgsConstructor
+ @NoArgsConstructor
+ @Builder
+ @Entity
+ @Table(name="opportunity")
+public class Opportunity {
 
-// 	// @Id
-// 	// @GeneratedValue(strategy =GenerationType.SEQUENCE,generator= "opportunity_id_seq)
-// 	private Long id;
+ 	 @Id
+ 	 @GeneratedValue(strategy =GenerationType.SEQUENCE,generator= "opportunity_id_seq")
+ 	private Long id;
 
 
 
 
 // // {
 // //     "ApplicantID": {{EZLynxApplicantID}},
-//     private String Name; //": "JENNIFER EPIQUE",
+     private String Name; //": "JENNIFER EPIQUE",
+ }
 //    /// "LeadChannelID": {{SalesCenterAPI.Enumerables.Channel.ID}},
 //      private LocalDateTime XDate; //": "2016-10-20T00:00:00",
 //     //enum "ProbabilityOfSale": "High",

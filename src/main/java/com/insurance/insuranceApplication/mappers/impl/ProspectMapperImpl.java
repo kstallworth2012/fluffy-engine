@@ -2,32 +2,31 @@ package com.insurance.insuranceApplication.mappers.impl;
 
 
 
-// import com.insurance.insuranceApplication..domain.dto
-// import com.insurance.insuranceApplication..domain
-// import com.insurance.insuranceApplication.mappers.Mapper;
-// import org.modelMapper.ModelMapper;
+ import com.insurance.insuranceApplication.domain.dto.ProspectDto;
+ import com.insurance.insuranceApplication.domain.Prospect;
+ import com.insurance.insuranceApplication.mappers.Mapper;
+ import org.modelmapper.ModelMapper;
+import org.springframework.stereotype.Component;
 
 
 
 
-// @Component
-public class ProspectMapperImpl{}
-
-// implements Mapper<domain object, Dto>{
+ @Component
+public class ProspectMapperImpl implements Mapper<Prospect, ProspectDto>{
 	
-//     private ModelMapper modelMapper;
+     private ModelMapper model_Mapper;
 
-//     public MapperImpl(ModelMapper _modelMapper){
-//         this.modelMapper = _modelMapper; 
-//     }
-// 	@Override
-// 	public Dto mapTo(Domin object){
-// 	    return modelMapper.map(domainObject, Dto.class);
-// 	}
+     public ProspectMapperImpl(ModelMapper _modelMapper){
+         this.model_Mapper = _modelMapper; 
+     }
+ 	@Override
+ 	public ProspectDto mapTo(Prospect object){
+ 	    return model_Mapper.map(object, ProspectDto.class);
+ 	}
 
 
-// 	@Override 
-// 	public domainObject mapFrom(DTO dto){
-// 	   return modelMapper.map(Dto, domainObject);
-// 	}
-// }
+ 	@Override 
+ 	public Prospect mapFrom(ProspectDto dto){
+ 	   return model_Mapper.map(dto, Prospect.class);
+ 	}
+ }
