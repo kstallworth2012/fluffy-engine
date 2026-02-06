@@ -2,6 +2,10 @@ package com.insurance.insuranceApplication.services;
 
 import java.util.List;
 import java.util.Optional;
+
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+
 import com.insurance.insuranceApplication.domain.User;
 
 public interface UserService{
@@ -12,7 +16,8 @@ public interface UserService{
     List<User> findAll();
 
     Optional<User> findOne(String _userName);
-	
+    Page<User> findAll(Pageable _pageable);
+
 	boolean isExists(String _userName);
 
 

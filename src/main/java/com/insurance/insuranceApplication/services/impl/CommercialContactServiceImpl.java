@@ -6,6 +6,16 @@ import java.util.Optional;
 import com.insurance.insuranceApplication.domain.CommercialContact;
 import com.insurance.insuranceApplication.services.CommercialContactService;
 
+
+import java.util.stream.Collectors;
+import java.util.stream.StreamSupport;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+
+
+import org.springframework.stereotype.Service;
+
+@Service
 public class CommercialContactServiceImpl implements CommercialContactService{
 
 	@Override
@@ -42,6 +52,12 @@ public class CommercialContactServiceImpl implements CommercialContactService{
 	public void delete(String commercialContact_id) {
 		// TODO Auto-generated method stub
 		
+	}
+
+	@Override
+	public Page<CommercialContact> findAll(Pageable _pageable) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }

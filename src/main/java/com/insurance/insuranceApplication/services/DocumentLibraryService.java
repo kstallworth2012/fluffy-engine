@@ -3,6 +3,8 @@ package com.insurance.insuranceApplication.services;
 import java.util.List;
 import java.util.Optional;
 
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 
 import com.insurance.insuranceApplication.domain.DocumentLibrary;
 
@@ -15,6 +17,9 @@ public interface DocumentLibraryService{
     List<DocumentLibrary> findAll();
 
     Optional<DocumentLibrary> findOne(String _documentLibrary);
+    
+    Page<DocumentLibrary> findAll(Pageable _pageable);
+
 	
 	boolean isExists(String _documentLibrary);
 

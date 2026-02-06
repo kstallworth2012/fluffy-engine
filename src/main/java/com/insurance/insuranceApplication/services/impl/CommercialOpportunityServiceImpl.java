@@ -6,6 +6,16 @@ import java.util.Optional;
 import com.insurance.insuranceApplication.domain.CommercialOpportunity;
 import com.insurance.insuranceApplication.services.CommercialOpportunityService;
 
+
+import java.util.stream.Collectors;
+import java.util.stream.StreamSupport;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+
+
+import org.springframework.stereotype.Service;
+
+@Service
 public class CommercialOpportunityServiceImpl implements CommercialOpportunityService{
 
 	@Override
@@ -44,6 +54,12 @@ public class CommercialOpportunityServiceImpl implements CommercialOpportunitySe
 	public void delete(String commercialOpportunity_id) {
 		// TODO Auto-generated method stub
 		
+	}
+
+	@Override
+	public Page<CommercialOpportunity> findAll(Pageable _pageable) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }

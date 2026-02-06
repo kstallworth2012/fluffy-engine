@@ -2,6 +2,10 @@ package com.insurance.insuranceApplication.services;
 
 import java.util.List;
 import java.util.Optional;
+
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+
 import com.insurance.insuranceApplication.domain.Policy;
 
 
@@ -14,6 +18,9 @@ public interface PolicyService{
     List<Policy> findAll();
 
     Optional<Policy> findOne(String _policy);
+    
+    Page<Policy> findAll(Pageable _pageable);
+
 	
 	boolean isExists(String _policy);
 

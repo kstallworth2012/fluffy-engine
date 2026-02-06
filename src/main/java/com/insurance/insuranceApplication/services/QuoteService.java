@@ -2,6 +2,10 @@ package com.insurance.insuranceApplication.services;
 
 import java.util.List;
 import java.util.Optional;
+
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+
 import com.insurance.insuranceApplication.domain.Quote;
 
 public interface QuoteService{
@@ -15,6 +19,9 @@ public interface QuoteService{
     List<Quote> findAll();
 
     Optional<Quote> findOne(String _quote);
+    
+    Page<Quote> findAll(Pageable _pageable);
+
 	
 	boolean isExists(String _quote);
 

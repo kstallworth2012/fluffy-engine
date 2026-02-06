@@ -3,6 +3,10 @@ package com.insurance.insuranceApplication.services;
 
 import java.util.List;
 import java.util.Optional;
+
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+
 import com.insurance.insuranceApplication.domain.CommercialPolicy;
 
 public interface CommercialPolicyService{
@@ -12,6 +16,9 @@ public interface CommercialPolicyService{
     List<CommercialPolicy> findAll();
 
     Optional<CommercialPolicy> findOne(String _commercialPolicy);
+    
+    Page<CommercialPolicy> findAll(Pageable _pageable);
+
 	
 	boolean isExists(String _commercialPolicy);
 

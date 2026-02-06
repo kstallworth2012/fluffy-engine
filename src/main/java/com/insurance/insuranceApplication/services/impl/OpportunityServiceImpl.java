@@ -6,6 +6,16 @@ import java.util.Optional;
 import com.insurance.insuranceApplication.domain.Opportunity;
 import com.insurance.insuranceApplication.services.OpportunityService;
 
+
+import java.util.stream.Collectors;
+import java.util.stream.StreamSupport;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+
+
+import org.springframework.stereotype.Service;
+
+@Service
 public class OpportunityServiceImpl implements OpportunityService{
 
 	@Override
@@ -42,6 +52,12 @@ public class OpportunityServiceImpl implements OpportunityService{
 	public void delete(String opportunity_id) {
 		// TODO Auto-generated method stub
 		
+	}
+
+	@Override
+	public Page<Opportunity> findAll(Pageable _pageable) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }

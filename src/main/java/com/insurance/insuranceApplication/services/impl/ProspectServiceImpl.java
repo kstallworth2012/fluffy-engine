@@ -6,6 +6,16 @@ import java.util.Optional;
 import com.insurance.insuranceApplication.domain.Prospect;
 import com.insurance.insuranceApplication.services.ProspectService;
 
+
+import java.util.stream.Collectors;
+import java.util.stream.StreamSupport;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+
+
+import org.springframework.stereotype.Service;
+
+@Service
 public class ProspectServiceImpl implements ProspectService{
 
 	public ProspectServiceImpl() {
@@ -46,6 +56,12 @@ public class ProspectServiceImpl implements ProspectService{
 	public void delete(String prospect_id) {
 		// TODO Auto-generated method stub
 		
+	}
+
+	@Override
+	public Page<Prospect> findAll(Pageable _pageable) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }

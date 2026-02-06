@@ -2,6 +2,10 @@ package com.insurance.insuranceApplication.services;
 
 import java.util.List;
 import java.util.Optional;
+
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+
 import com.insurance.insuranceApplication.domain.Document;
 
 public interface DocumentService{
@@ -12,6 +16,9 @@ public interface DocumentService{
     List<Document> findAll();
 
     Optional<Document> findOne(String _document);
+    
+    Page<Document> findAll(Pageable _pageable);
+
 	
 	boolean isExists(String _document);
 

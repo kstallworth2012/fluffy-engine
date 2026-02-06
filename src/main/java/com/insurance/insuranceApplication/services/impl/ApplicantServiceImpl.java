@@ -6,6 +6,17 @@ import java.util.Optional;
 import com.insurance.insuranceApplication.domain.Applicant;
 import com.insurance.insuranceApplication.services.ApplicantService;
 
+
+
+import java.util.stream.Collectors;
+import java.util.stream.StreamSupport;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+
+
+import org.springframework.stereotype.Service;
+
+@Service
 public class ApplicantServiceImpl implements ApplicantService{
 
 	@Override
@@ -42,6 +53,12 @@ public class ApplicantServiceImpl implements ApplicantService{
 	public void delete(String applicant_id) {
 		// TODO Auto-generated method stub
 		
+	}
+
+	@Override
+	public Page<Applicant> findAll(Pageable _pageable) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }

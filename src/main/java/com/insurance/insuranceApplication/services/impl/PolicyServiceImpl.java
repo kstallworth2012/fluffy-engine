@@ -6,6 +6,17 @@ import java.util.Optional;
 import com.insurance.insuranceApplication.domain.Policy;
 import com.insurance.insuranceApplication.services.PolicyService;
 
+
+
+import java.util.stream.Collectors;
+import java.util.stream.StreamSupport;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+
+
+import org.springframework.stereotype.Service;
+
+@Service
 public class PolicyServiceImpl implements PolicyService{
 
 	public PolicyServiceImpl() {
@@ -46,6 +57,12 @@ public class PolicyServiceImpl implements PolicyService{
 	public void delete(String policy_id) {
 		// TODO Auto-generated method stub
 		
+	}
+
+	@Override
+	public Page<Policy> findAll(Pageable _pageable) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }

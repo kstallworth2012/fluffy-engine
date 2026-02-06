@@ -2,6 +2,10 @@ package com.insurance.insuranceApplication.services;
 
 import java.util.List;
 import java.util.Optional;
+
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+
 import com.insurance.insuranceApplication.domain.CommercialOpportunity;
 
 public interface CommercialOpportunityService{
@@ -11,6 +15,9 @@ public interface CommercialOpportunityService{
     List<CommercialOpportunity> findAll();
 
     Optional<CommercialOpportunity> findOne(String _commercialOpportunity);
+    
+    Page<CommercialOpportunity> findAll(Pageable _pageable);
+
 	
 	boolean isExists(String _commercialOpportunity);
 

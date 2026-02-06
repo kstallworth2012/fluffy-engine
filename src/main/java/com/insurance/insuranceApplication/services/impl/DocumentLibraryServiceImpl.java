@@ -6,6 +6,16 @@ import java.util.Optional;
 import com.insurance.insuranceApplication.domain.DocumentLibrary;
 import com.insurance.insuranceApplication.services.DocumentLibraryService;
 
+
+import java.util.stream.Collectors;
+import java.util.stream.StreamSupport;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+
+
+import org.springframework.stereotype.Service;
+
+@Service
 public class DocumentLibraryServiceImpl implements DocumentLibraryService{
 
 	@Override
@@ -42,6 +52,12 @@ public class DocumentLibraryServiceImpl implements DocumentLibraryService{
 	public void delete(String documentLibrary_id) {
 		// TODO Auto-generated method stub
 		
+	}
+
+	@Override
+	public Page<DocumentLibrary> findAll(Pageable _pageable) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }
