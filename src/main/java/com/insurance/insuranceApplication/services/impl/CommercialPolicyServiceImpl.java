@@ -5,7 +5,7 @@ import java.util.Optional;
 
 import com.insurance.insuranceApplication.domain.CommercialPolicy;
 import com.insurance.insuranceApplication.services.CommercialPolicyService;
-
+import com.insurance.insuranceApplication.repositories.CommercialPolicyRepository;
 
 import java.util.stream.Collectors;
 import java.util.stream.StreamSupport;
@@ -17,6 +17,14 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class CommercialPolicyServiceImpl implements CommercialPolicyService{
+
+	
+	private CommercialPolicyRepository commercialPolicyRepo;
+	
+	public CommercialPolicyServiceImpl(CommercialPolicyRepository _commercialPolicyRepo) {
+		super();
+		this.commercialPolicyRepo = _commercialPolicyRepo;
+	}
 
 	@Override
 	public CommercialPolicy createCommercialPolicy(String commercialPolicy, CommercialPolicy _commercialPolicy) {

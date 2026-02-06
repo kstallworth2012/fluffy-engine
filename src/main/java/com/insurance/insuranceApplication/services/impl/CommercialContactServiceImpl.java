@@ -5,7 +5,7 @@ import java.util.Optional;
 
 import com.insurance.insuranceApplication.domain.CommercialContact;
 import com.insurance.insuranceApplication.services.CommercialContactService;
-
+import com.insurance.insuranceApplication.repositories.CommercialContactRepository;
 
 import java.util.stream.Collectors;
 import java.util.stream.StreamSupport;
@@ -17,6 +17,19 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class CommercialContactServiceImpl implements CommercialContactService{
+
+	
+	
+	private CommercialContactRepository commercialContactRepository; 
+	
+	
+	
+	
+	
+	public CommercialContactServiceImpl(CommercialContactRepository _commercialContactRepository) {
+		super();
+		this.commercialContactRepository = _commercialContactRepository;
+	}
 
 	@Override
 	public CommercialContact createCommercialContact(String commercialContact, CommercialContact _commercialContact) {

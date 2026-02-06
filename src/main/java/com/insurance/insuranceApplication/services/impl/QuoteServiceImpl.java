@@ -5,6 +5,7 @@ import java.util.Optional;
 
 import com.insurance.insuranceApplication.domain.Quote;
 import com.insurance.insuranceApplication.services.QuoteService;
+import com.insurance.insuranceApplication.repositories.QuoteRepository;
 
 
 import java.util.stream.Collectors;
@@ -17,6 +18,17 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class QuoteServiceImpl implements QuoteService{
+
+	
+	private QuoteRepository quoteRepo;
+	
+	
+	
+	
+	public QuoteServiceImpl(QuoteRepository _quoteRepo) {
+		super();
+		this.quoteRepo = _quoteRepo;
+	}
 
 	public QuoteServiceImpl() {
 		// TODO Auto-generated constructor stub

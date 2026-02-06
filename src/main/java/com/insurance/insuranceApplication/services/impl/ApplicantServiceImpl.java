@@ -5,7 +5,7 @@ import java.util.Optional;
 
 import com.insurance.insuranceApplication.domain.Applicant;
 import com.insurance.insuranceApplication.services.ApplicantService;
-
+import com.insurance.insuranceApplication.repositories.ApplicantRepository;
 
 
 import java.util.stream.Collectors;
@@ -18,6 +18,14 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class ApplicantServiceImpl implements ApplicantService{
+
+	
+	private ApplicantRepository applicantRepository; 
+	
+	public ApplicantServiceImpl(ApplicantRepository _applicantRepository) {
+		super();
+		this.applicantRepository = _applicantRepository;
+	}
 
 	@Override
 	public Applicant createApplicant(String Applicant, Applicant _applicant) {

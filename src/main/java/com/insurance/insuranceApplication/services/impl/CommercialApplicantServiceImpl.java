@@ -5,7 +5,7 @@ import java.util.Optional;
 
 import com.insurance.insuranceApplication.domain.CommercialApplication;
 import com.insurance.insuranceApplication.services.CommercialApplicantService;
-
+//import com.insurance.insuranceApplication.repositories.
 
 
 import java.util.stream.Collectors;
@@ -18,6 +18,13 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class CommercialApplicantServiceImpl implements CommercialApplicantService{
+
+	
+	
+	public CommercialApplicantServiceImpl() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
 
 	@Override
 	public CommercialApplication createCommercialApplication(String commercialApplication,

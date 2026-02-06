@@ -5,7 +5,7 @@ import java.util.Optional;
 
 import com.insurance.insuranceApplication.domain.Contact;
 import com.insurance.insuranceApplication.services.ContactService;
-
+import com.insurance.insuranceApplication.repositories.ContactRepository;
 
 
 import java.util.stream.Collectors;
@@ -18,6 +18,15 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class ContactServiceImpl implements ContactService{
+	
+	private ContactRepository contactRepo;
+	
+	
+
+	public ContactServiceImpl(ContactRepository _contactRepo) {
+		super();
+		this.contactRepo = _contactRepo;
+	}
 
 	@Override
 	public Contact createContact(String contact, Contact _contact) {

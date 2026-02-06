@@ -5,7 +5,7 @@ import java.util.Optional;
 
 import com.insurance.insuranceApplication.domain.Document;
 import com.insurance.insuranceApplication.services.DocumentService;
-
+import com.insurance.insuranceApplication.repositories.DocumentRepository;
 
 import java.util.stream.Collectors;
 import java.util.stream.StreamSupport;
@@ -17,6 +17,16 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class DocumentServiceImpl implements DocumentService{
+
+	
+	private DocumentRepository documentRepo;
+	
+	
+	
+	public DocumentServiceImpl(DocumentRepository _documentRepo) {
+		super();
+		this.documentRepo = _documentRepo;
+	}
 
 	@Override
 	public Document createDocument(String document, Document _document) {

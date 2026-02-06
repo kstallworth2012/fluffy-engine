@@ -5,7 +5,7 @@ import java.util.Optional;
 
 import com.insurance.insuranceApplication.domain.Policy;
 import com.insurance.insuranceApplication.services.PolicyService;
-
+import com.insurance.insuranceApplication.repositories.PolicyRepository;
 
 
 import java.util.stream.Collectors;
@@ -19,8 +19,13 @@ import org.springframework.stereotype.Service;
 @Service
 public class PolicyServiceImpl implements PolicyService{
 
-	public PolicyServiceImpl() {
+	
+	
+	private PolicyRepository policyRepo;
+	
+	public PolicyServiceImpl(PolicyRepository _policyRepo) {
 		// TODO Auto-generated constructor stub
+		this.policyRepo = _policyRepo;
 	}
 
 	@Override

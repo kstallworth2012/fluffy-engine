@@ -5,7 +5,7 @@ import java.util.Optional;
 
 import com.insurance.insuranceApplication.domain.Opportunity;
 import com.insurance.insuranceApplication.services.OpportunityService;
-
+import com.insurance.insuranceApplication.repositories.OpportunityRepository;
 
 import java.util.stream.Collectors;
 import java.util.stream.StreamSupport;
@@ -15,8 +15,22 @@ import org.springframework.data.domain.Pageable;
 
 import org.springframework.stereotype.Service;
 
+
+
+
 @Service
 public class OpportunityServiceImpl implements OpportunityService{
+
+	
+	private OpportunityRepository opportunityRepository;
+	
+	
+	
+	
+	public OpportunityServiceImpl(OpportunityRepository _opportunityRepository) {
+		super();
+		this.opportunityRepository = _opportunityRepository;
+	}
 
 	@Override
 	public Opportunity createOpportunity(String Opportunity, Opportunity _opportunity) {

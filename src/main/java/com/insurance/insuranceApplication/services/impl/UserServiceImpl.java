@@ -5,7 +5,7 @@ import java.util.Optional;
 
 import com.insurance.insuranceApplication.domain.User;
 import com.insurance.insuranceApplication.services.UserService;
-
+import com.insurance.insuranceApplication.repositories.UserRepository;
 
 
 import java.util.stream.Collectors;
@@ -18,6 +18,15 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class UserServiceImpl implements UserService{
+	
+	private UserRepository userRepo;
+	
+	
+
+	public UserServiceImpl(UserRepository _userRepo) {
+		super();
+		this.userRepo = _userRepo;
+	}
 
 	public UserServiceImpl() {
 		// TODO Auto-generated constructor stub
