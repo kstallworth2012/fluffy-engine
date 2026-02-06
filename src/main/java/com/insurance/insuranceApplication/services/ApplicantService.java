@@ -8,4 +8,26 @@ import com.insurance.insuranceApplication.domain.Applicant;
 
 
 
-public interface ApplicantService{}
+public interface ApplicantService{
+	
+	
+	Applicant createApplicant(String Applicant, Applicant _applicant);
+    
+    List<Applicant> findAll();
+
+    Optional<Applicant> findOne(String _applicant);
+	
+	boolean isExists(String _applicant);
+
+
+	Applicant partialUpdate(String applicant_id, Applicant applicantEntity );
+
+	void delete(String applicant_id);
+	
+	
+	
+	
+	
+	
+	
+}
