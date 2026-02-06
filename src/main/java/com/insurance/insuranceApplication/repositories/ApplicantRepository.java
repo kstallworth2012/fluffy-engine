@@ -1,8 +1,14 @@
 package com.insurance.insuranceApplication.repositories;
 
+import com.insurance.insuranceApplication.domain.Applicant;
 
 
-public interface ApplicantRepository {
+import org.springframework.data.repository.CrudRepository;
+import org.springframework.stereotype.Repository;
+
+
+@Repository
+public interface ApplicantRepository extends CrudRepository<Applicant,Long>{
 
     
 }
