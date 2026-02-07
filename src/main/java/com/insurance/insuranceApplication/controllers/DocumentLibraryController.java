@@ -2,8 +2,23 @@ package com.insurance.insuranceApplication.controllers;
 
 import org.springframework.web.bind.annotation.RestController;
 
+import com.insurance.insuranceApplication.services.DocumentLibraryService;
+
 @RestController
-public class DocumentLibraryController{}
+public class DocumentLibraryController{
+	
+	
+	
+	private DocumentLibraryService docLibraryService;
+
+	public DocumentLibraryController(DocumentLibraryService _docLibraryService) {
+		super();
+		this.docLibraryService = _docLibraryService;
+	} 
+	
+   	@PostMapping(path="/document-library")
+   	public DocumentLibrary createDocumentlibrary(Request)
+}
 
 
 // import com.insurance.insuranceApplication.services._____

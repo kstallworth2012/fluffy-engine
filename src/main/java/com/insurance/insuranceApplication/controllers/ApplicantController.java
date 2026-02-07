@@ -1,25 +1,13 @@
 package com.insurance.insuranceApplication.controllers;
 
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
-// import com.insurance.insuranceApplication.services._____
-// import com.insurance.insuranceApplication.domain.dto._______
-// import org.springframework.web.bind.annotation.RestController;
-// import org.springframework.web.bind.annotation.GetMapping;
-// import org.springframework.web.bind.annotation.PostMapping;
-// import org.springframework.web.bind.annotation.PutMapping;
-// import org.springframework.web.bind.annotation.DeleteMapping;
-// import org.springframework.web.bind.annotation.RequestMapping;
-// import org.springframework.web.bind.annotation.RestController;
-// import org.springframework.web.bind.annotation.PathVariable;
-// import org.springframework.web.bind.annotation.RequestBody; 
-// import org.springframework.web.bind.annotation.ResponseStatus;
-// import org.springframework.web.server.ResponseStatusException;
-// import jakarta.validation.Valid;
-// import org.springframework.http.HttpStatus;
-// import java.util.ArrayList; 
-// import java.util.List; 
-// import java.util.Optional;
+import com.insurance.insuranceApplication.domain.Applicant;
+import com.insurance.insuranceApplication.domain.dto.ApplicantDto;
+import com.insurance.insuranceApplication.mappers.Mapper;
+import com.insurance.insuranceApplication.services.ApplicantService;
 
 
 
@@ -30,10 +18,28 @@ import org.springframework.web.bind.annotation.RestController;
 
 
 
-// private ___Service ___Service;
 
 @RestController
-public class ApplicantController{}
+public class ApplicantController{
+	
+	private ApplicantService appService;
+	
+	private Mapper<Applicant, ApplicantDto> applicantMapper;
+
+	public ApplicantController(ApplicantService _appService, Mapper<Applicant, ApplicantDto> _applicantMapper) {
+		super();
+		this.appService = _appService;
+		this.applicantMapper = _applicantMapper;
+	} 
+	
+	@PostMapping(path="/applicants")
+	public ApplicantDto createApplicant(@RequestBody ApplicantDto _app) {
+			Applicant appEntity = applicantMapper.mapFrom(_app);
+			Applicant savedApplicantEntity = appService.createApplicant(null, appEntity);
+			
+			return applicantMapper.mapTo(savedApplicantEntity);
+	}
+}
 /*
 //find all members in all projects
 //@GetMapping("api/tasks")
@@ -93,3 +99,27 @@ void delete__(@RequestBody Object _object ,Integer _id){
 }
 */
 // }
+
+
+
+
+
+
+
+
+
+
+//Testing  our REST Controllers 
+/*
+
+import org.springframework.boot.test.context.SpringBootTest;
+
+
+@SpringBootTest
+@ExtendWith(SpringExtension.class)
+@DirtiestContext(classMode = DirtiestContext.ClassMode.AFTER_EACH_TEST_METHOD)
+@AutoConfigureMockMvc
+public class ApplicantControllerIntegrationTests{
+  
+
+ */

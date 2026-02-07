@@ -5,6 +5,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.insurance.insuranceApplication.domain.Contact;
+import com.insurance.insuranceApplication.domain.dto.ContactDto;
+import com.insurance.insuranceApplication.mappers.Mapper;
 import com.insurance.insuranceApplication.services.ContactService;
 
 @RestController
@@ -14,15 +16,21 @@ public class ContactController{
 	
 	private  ContactService contactService;
 
-	public ContactController(ContactService _contactService) {
+	private Mapper<Contact, ContactDto> contactMapper; 
+	
+	public ContactController(ContactService _contactService, Mapper<Contact, ContactDto> _contactMapper) {
 		super();
 		this.contactService = _contactService;
+		this.contactMapper = _contactMapper;
 	} 
 	
 	
 	@PostMapping(path="/contacts")
-	public Contact createContact(@RequestBody Contact _contact) {
-		return contactService.createContact(null, _contact);
+	public ContactDto createContact(@RequestBody ContactDto _contact) {
+		
+		Contact contactEntity = contactMapper.mapFrom(_contact);
+		Contact savedContactEntity = contactService.createContact(null, contactEntity);
+		return contactMapper.mapTo(savedContactEntity);
 	}
 	
 	
