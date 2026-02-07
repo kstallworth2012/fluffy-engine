@@ -1,8 +1,6 @@
 package com.insurance.insuranceApplication.controllers;
 
-
-
-
+import org.springframework.web.bind.annotation.RestController;
 
 // import com.insurance.insuranceApplication.services._____
 // import com.insurance.insuranceApplication.domain.dto._______
@@ -34,7 +32,7 @@ package com.insurance.insuranceApplication.controllers;
 
 // private ___Service ___Service;
 
-
+@RestController
 public class ApplicantController{}
 /*
 //find all members in all projects

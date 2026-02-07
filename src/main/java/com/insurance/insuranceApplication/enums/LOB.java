@@ -9,434 +9,433 @@ public enum LOB {
 
    Abusive_Acts_Liability,
 
-   "Name": "Accidental D&D",
+   Accidental_DD,
 
-   "Name": "Accidental Medical Coverage",
-   "Code": "ACCMD"
-  3,
-   "Name": "Agr Sched/Unsched Pers Prpty",
-   "Code": "AGPP"
- 2,
-   "Name": "Agriculture Liab_AGLIA"
- 5,
-   "Name": "Agriculture Pkg_APKGE"
- 4,
-   "Name": "Agriculture Prpty",
-   "Code": "AGPR"
+   Accidental_Medical_Coverage_ACCMD,
+  
+     "Agr Sched/Unsched Pers Prpty",
+   _ "AGPP"
+ 
+    : "Agriculture Liab_AGLIA"
+ 
+     "Agriculture Pkg_APKGE"
+ 
+     "Agriculture Prpty",
+   _ "AGPR"
   84,
-   "Name": "Annuity Fixed",
-   "Code": "ANFIX"
+     "Annuity Fixed",
+   _ "ANFIX"
   86,
-   "Name": "Annuity Income",
-   "Code": "ANINC"
+     "Annuity Income",
+   _ "ANINC"
   85,
-   "Name": "Annuity Indexed",
-   "Code": "ANIDX"
+     "Annuity Indexed",
+   _ "ANIDX"
   87,
-   "Name": "Annuity Variable",
-   "Code": "ANVAR"
+     "Annuity Variable",
+   _ "ANVAR"
   111,
-   "Name": "Asset Managed",
-   "Code": "AMANG"
+     "Asset Managed",
+   _ "AMANG"
   6,
-   "Name": "Auto (Commercial)",
-   "Code": "AUTOB"
+     "Auto (Commercial)",
+   _ "AUTOB"
   7,
-   "Name": "Auto (Personal)",
-   "Code": "AUTOP"
+     "Auto (Personal)",
+   _ "AUTOP"
   98,
-   "Name": "Aviation Insurance",
-   "Code": "AVIA"
+     "Aviation Insurance",
+   _ "AVIA"
   180,
-   "Name": "Background Checks",
-   "Code": "BGC"
+     "Background Checks",
+   _ "BGC"
   10,
-   "Name": "Boiler/Mach Sm Bus Pol",
-   "Code": "BMSBP"
+     "Boiler/Mach Sm Bus Pol",
+   _ "BMSBP"
   74,
-   "Name": "Bonds Miscellaneous",
-   "Code": "BMISC"
+     "Bonds Miscellaneous",
+   _ "BMISC"
   13,
-   "Name": "BOP Liability",
-   "Code": "BOPGL"
+     "BOP Liability",
+   _ "BOPGL"
   14,
-   "Name": "BOP Property",
-   "Code": "BOPPR"
+     "BOP Property",
+   _ "BOPPR"
   178,
-   "Name": "Bumbershoot Marine Liability",
-   "Code": "BUMB"
+     "Bumbershoot Marine Liability",
+   _ "BUMB"
   12,
-   "Name": "Business owners",
-   "Code": "BOP"
+     "Business owners",
+   _ "BOP"
   97,
-   "Name": "Cancer Insurance",
-   "Code": "CANCR"
+     "Cancer Insurance",
+   _ "CANCR"
   176,
-   "Name": "Canine Liability",
-   "Code": "CANIN"
+     "Canine Liability",
+   _ "CANIN"
   133,
-   "Name": "COBRA",
-   "Code": "COBRA"
+     "COBRA",
+   _ "COBRA"
   17,
-   "Name": "Commercial Articles",
-   "Code": "COMAR"
+     "Commercial Articles",
+   _ "COMAR"
   15,
-   "Name": "Commercial Fire",
-   "Code": "CFIRE"
+     "Commercial Fire",
+   _ "CFIRE"
   19,
-   "Name": "Commercial Pkg",
-   "Code": "CPKGE"
+     "Commercial Pkg",
+   _ "CPKGE"
   47,
-   "Name": "Commercial Prpty",
-   "Code": "PROP"
+     "Commercial Prpty",
+   _ "PROP"
   109,
-   "Name": "Comprehensive Personal Liab",
-   "Code": "CPL"
+     "Comprehensive Personal Liab",
+   _ "CPL"
   24,
-   "Name": "Computers",
-   "Code": "EDP"
+     "Computers",
+   _ "EDP"
   191,
-   "Name": "Condominium",
-   "Code": "CONDO"
+     "Condominium",
+   _ "CONDO"
   18,
-   "Name": "Contr Equip Floater",
-   "Code": "CONTR"
+     "Contr Equip Floater",
+   _ "CONTR"
   159,
-   "Name": "Contractors Bond",
-   "Code": "CONTB"
+     "Contractors Bond",
+   _ "CONTB"
   172,
-   "Name": "Court Bonds",
-   "Code": "KBOND"
+     "Court Bonds",
+   _ "KBOND"
   20,
-   "Name": "Crime",
-   "Code": "CRIM"
+     "Crime",
+   _ "CRIM"
   185,
-   "Name": "Critical Illness",
-   "Code": "CRILL"
+     "Critical Illness",
+   _ "CRILL"
   95,
-   "Name": "Crop Insurance",
-   "Code": "CROP"
+     "Crop Insurance",
+   _ "CROP"
   186,
-   "Name": "Cyber Liability",
-   "Code": "CYBER"
+     "Cyber Liability",
+   _ "CYBER"
   72,
-   "Name": "Dental Insurance",
-   "Code": "DENTL"
+     "Dental Insurance",
+   _ "DENTL"
   173,
-   "Name": "Dental/Vision/Hearing",
-   "Code": "DVH"
+     "Dental/Vision/Hearing",
+   _ "DVH"
   112,
-   "Name": "Difference in Conditions",
-   "Code": "DIFFC"
+     "Difference in Conditions",
+   _ "DIFFC"
   23,
-   "Name": "Directors and Officers",
-   "Code": "DO"
+     "Directors and Officers",
+   _ "DO"
   81,
-   "Name": "Disability",
-   "Code": "DISAB"
+     "Disability",
+   _ "DISAB"
   144,
-   "Name": "Disability - Long Term",
-   "Code": "DISLT"
+     "Disability - Long Term",
+   _ "DISLT"
   143,
-   "Name": "Disability - Short Term",
-   "Code": "DISSH"
+     "Disability - Short Term",
+   _ "DISSH"
   163,
-   "Name": "Dishonest Bond",
-   "Code": "DBOND"
+     "Dishonest Bond",
+   _ "DBOND"
   179,
-   "Name": "Drug Screening",
-   "Code": "DRS"
+     "Drug Screening",
+   _ "DRS"
   22,
-   "Name": "Dwelling fire",
-   "Code": "DFIRE"
+     "Dwelling fire",
+   _ "DFIRE"
   28,
-   "Name": "Earthquake",
-   "Code": "EQ"
+     "Earthquake",
+   _ "EQ"
   27,
-   "Name": "Empl Practices Liab",
-   "Code": "EPLI"
+     "Empl Practices Liab",
+   _ "EPLI"
   25,
-   "Name": "Employers Liability",
-   "Code": "ELIAB"
+     "Employers Liability",
+   _ "ELIAB"
   116,
-   "Name": "Equine",
-   "Code": "EQUIN"
+     "Equine",
+   _ "EQUIN"
   117,
-   "Name": "Equine Liability",
-   "Code": "EQULI"
+     "Equine Liability",
+   _ "EQULI"
   8,
-   "Name": "Equipment Breakdown",
-   "Code": "BANDM"
+     "Equipment Breakdown",
+   _ "BANDM"
   175,
-   "Name": "ERISA  Fidelity Bond",
-   "Code": "ERISA"
+     "ERISA  Fidelity Bond",
+   _ "ERISA"
   26,
-   "Name": "Errors and Omissions",
-   "Code": "EO"
+     "Errors and Omissions",
+   _ "EO"
   90,
-   "Name": "Event Liability",
-   "Code": "EVENT"
+     "Event Liability",
+   _ "EVENT"
   147,
-   "Name": "Excess Flood",
-   "Code": "XFLOD"
+     "Excess Flood",
+   _ "XFLOD"
   181,
-   "Name": "Excess Liability",
-   "Code": "EXCES"
+     "Excess Liability",
+   _ "EXCES"
   139,
-   "Name": "Farm Fire",
-   "Code": "FARMF"
+     "Farm Fire",
+   _ "FARMF"
   138,
-   "Name": "Farm Liability",
-   "Code": "FARML"
+     "Farm Liability",
+   _ "FARML"
   140,
-   "Name": "Farm Wind",
-   "Code": "FARMW"
+     "Farm Wind",
+   _ "FARMW"
   63,
-   "Name": "Fidelity",
-   "Code": "FIDTY"
+     "Fidelity",
+   _ "FIDTY"
   29,
-   "Name": "Fiduciary",
-   "Code": "FIDUC"
+     "Fiduciary",
+   _ "FIDUC"
   82,
-   "Name": "Financial Service",
-   "Code": "FIN"
+     "Financial Service",
+   _ "FIN"
   30,
-   "Name": "Fine arts",
-   "Code": "FINAR"
+     "Fine arts",
+   _ "FINAR"
   154,
-   "Name": "Fire Arms Liability",
-   "Code": "FALIA"
+     "Fire Arms Liability",
+   _ "FALIA"
   127,
-   "Name": "Flexible Spending Account",
-   "Code": "FSA"
+     "Flexible Spending Account",
+   _ "FSA"
   31,
-   "Name": "Flood",
-   "Code": "FLOOD"
+     "Flood",
+   _ "FLOOD"
   148,
-   "Name": "Furriers Block",
-   "Code": "FURB"
+     "Furriers Block",
+   _ "FURB"
   32,
-   "Name": "Garage and Dealers",
-   "Code": "GARAG"
+     "Garage and Dealers",
+   _ "GARAG"
   158,
-   "Name": "Garage Bond",
-   "Code": "GBOND"
+     "Garage Bond",
+   _ "GBOND"
   16,
-   "Name": "Genl Liability",
-   "Code": "CGL"
+     "Genl Liability",
+   _ "CGL"
   33,
-   "Name": "Glass",
-   "Code": "GLASS"
+     "Glass",
+   _ "GLASS"
   65,
-   "Name": "Group",
-   "Code": "GROUP"
+     "Group",
+   _ "GROUP"
   128,
-   "Name": "Group Dental",
-   "Code": "GRPD"
+     "Group Dental",
+   _ "GRPD"
   183,
-   "Name": "Group Disability",
-   "Code": "GRPDI"
+     "Group Disability",
+   _ "GRPDI"
   115,
-   "Name": "Group Health",
-   "Code": "GRPHE"
+     "Group Health",
+   _ "GRPHE"
   114,
-   "Name": "Group Insurance",
-   "Code": "GRPLI"
+     "Group Insurance",
+   _ "GRPLI"
   184,
-   "Name": "Group Life",
-   "Code": "GRPLF"
+     "Group Life",
+   _ "GRPLF"
   161,
-   "Name": "Habitational Insurance",
-   "Code": "HABIT"
+     "Habitational Insurance",
+   _ "HABIT"
   136,
-   "Name": "Hail",
-   "Code": "HAIL"
+     "Hail",
+   _ "HAIL"
   66,
-   "Name": "Health",
-   "Code": "HLTH"
+     "Health",
+   _ "HLTH"
   34,
-   "Name": "Homeowners",
-   "Code": "HOME"
+     "Homeowners",
+   _ "HOME"
   165,
-   "Name": "Hospital Plan",
-   "Code": "HOSP"
+     "Hospital Plan",
+   _ "HOSP"
   129,
-   "Name": "Individual Retirement Account",
-   "Code": "IRA"
+     "Individual Retirement Account",
+   _ "IRA"
   35,
-   "Name": "Inland marine (comm)",
-   "Code": "INMRC"
+     "Inland marine (comm)",
+   _ "INMRC"
   36,
-   "Name": "Inland Marine (pers)",
-   "Code": "INMRP"
+     "Inland Marine (pers)",
+   _ "INMRP"
   9,
-   "Name": "Instl/builders risk",
-   "Code": "BLDRK"
+     "Instl/builders risk",
+   _ "BLDRK"
   125,
-   "Name": "International Liability",
-   "Code": "INLIA"
+     "International Liability",
+   _ "INLIA"
   37,
-   "Name": "Internet Liability",
-   "Code": "INTER"
+     "Internet Liability",
+   _ "INTER"
   162,
-   "Name": "Janitorial Bond",
-   "Code": "JBOND"
+     "Janitorial Bond",
+   _ "JBOND"
   70,
-   "Name": "Jewelry",
-   "Code": "JEWEL"
+     "Jewelry",
+   _ "JEWEL"
   75,
-   "Name": "Judicial",
-   "Code": "JUDCL"
+     "Judicial",
+   _ "JUDCL"
   38,
-   "Name": "Kidnap and Ransom",
-   "Code": "KIDRA"
+     "Kidnap and Ransom",
+   _ "KIDRA"
   106,
-   "Name": "Legal Shield, Identity Theft",
-   "Code": "LS/ID"
+     "Legal Shield, Identity Theft",
+   _ "LS/ID"
   100,
-   "Name": "Lessor's Risk",
-   "Code": "LRISK"
+     "Lessor's Risk",
+   _ "LRISK"
   145,
-   "Name": "Liability Gap",
-   "Code": "LIAGA"
+     "Liability Gap",
+   _ "LIAGA"
   164,
-   "Name": "Licensing Bond",
-   "Code": "LBOND"
+     "Licensing Bond",
+   _ "LBOND"
   68,
-   "Name": "Life",
-   "Code": "LIFE"
+     "Life",
+   _ "LIFE"
   142,
-   "Name": "Life - Permanent",
-   "Code": "LIFEP"
+     "Life - Permanent",
+   _ "LIFEP"
   141,
-   "Name": "Life - Term",
-   "Code": "LIFET"
+     "Life - Term",
+   _ "LIFET"
   39,
-   "Name": "Liquor Liability",
-   "Code": "LL"
+     "Liquor Liability",
+   _ "LL"
   71,
-   "Name": "Long Term Care",
-   "Code": "LTC"
+     "Long Term Care",
+   _ "LTC"
   104,
-   "Name": "Malpractice",
-   "Code": "MALP"
+     "Malpractice",
+   _ "MALP"
   132,
-   "Name": "Manufacturers Output Policy",
-   "Code": "MOP"
+     "Manufacturers Output Policy",
+   _ "MOP"
   177,
-   "Name": "Marina Operator Legal Liab",
-   "Code": "MOLL"
+     "Marina Operator Legal Liab",
+   _ "MOLL"
   124,
-   "Name": "Medicare Adv. Prescr Drug Plan",
-   "Code": "MAPD"
+     "Medicare Adv. Prescr Drug Plan",
+   _ "MAPD"
   77,
-   "Name": "Medicare Advantage",
-   "Code": "MEDAD"
+     "Medicare Advantage",
+   _ "MEDAD"
   169,
-   "Name": "Medicare Pres Drug Plan",
-   "Code": "MPDP"
+     "Medicare Pres Drug Plan",
+   _ "MPDP"
   78,
-   "Name": "Medicare Script",
-   "Code": "MEDSR"
+     "Medicare Script",
+   _ "MEDSR"
   79,
-   "Name": "Medicare Supplement",
-   "Code": "MEDSP"
+     "Medicare Supplement",
+   _ "MEDSP"
   94,
-   "Name": "Membership",
-   "Code": "MEMBR"
+     "Membership",
+   _ "MEMBR"
  120,
-   "Name": "Mexican Auto",
-   "Code": "Mexau"
+     "Mexican Auto",
+   _ "Mexau"
   188,
-   "Name": "Mine Subsidence",
-   "Code": "MINE "
+     "Mine Subsidence",
+   _ "MINE "
   45,
-   "Name": "Misc Pro Liab",
-   "Code": "PLMSC"
+     "Misc Pro Liab",
+   _ "PLMSC"
   105,
-   "Name": "Miscellaneous",
-   "Code": "MISC"
+     "Miscellaneous",
+   _ "MISC"
   40,
-   "Name": "Mobile Homes",
-   "Code": "MHOME"
+     "Mobile Homes",
+   _ "MHOME"
   96,
-   "Name": "Mortgage Insurance",
-   "Code": "MORT"
+     "Mortgage Insurance",
+   _ "MORT"
   41,
-   "Name": "Motor Truck Cargo",
-   "Code": "MTRTK"
+     "Motor Truck Cargo",
+   _ "MTRTK"
   61,
-   "Name": "Motorcycle",
-   "Code": "CYCL"
+     "Motorcycle",
+   _ "CYCL"
   110,
-   "Name": "Mutual Fund",
-   "Code": "MFUND"
+     "Mutual Fund",
+   _ "MFUND"
   130,
-   "Name": "Non-Owned",
-   "Code": "NONOW"
+     "Non-Owned",
+   _ "NONOW"
   157,
-   "Name": "Notary Bond",
-   "Code": "NBOND"
+     "Notary Bond",
+   _ "NBOND"
   156,
-   "Name": "Occupational Accident Ins",
-   "Code": "OAI"
+     "Occupational Accident Ins",
+   _ "OAI"
   42,
-   "Name": "Ocean Marine - Comm",
-   "Code": "OCMRC"
+     "Ocean Marine - Comm",
+   _ "OCMRC"
   189,
-   "Name": "Official Bond and Oath",
-   "Code": "OBOND"
+     "Official Bond and Oath",
+   _ "OBOND"
   160,
-   "Name": "Performance Bond",
-   "Code": "PBOND"
+     "Performance Bond",
+   _ "PBOND"
   151,
-   "Name": "Personal Liability",
-   "Code": "PERLI"
+     "Personal Liability",
+   _ "PERLI"
   46,
-   "Name": "Personal pkg",
-   "Code": "PPKGE"
+     "Personal pkg",
+   _ "PPKGE"
   152,
-   "Name": "Pet Insurance",
-   "Code": "PETIN"
+     "Pet Insurance",
+   _ "PETIN"
   43,
-   "Name": "Phys and Surg",
-   "Code": "PHYS"
+     "Phys and Surg",
+   _ "PHYS"
   88,
-   "Name": "Pollution Liability",
-   "Code": "POLL"
+     "Pollution Liability",
+   _ "POLL"
   83,
-   "Name": "Premium Financing",
-   "Code": "PREMF"
+     "Premium Financing",
+   _ "PREMF"
   108,
-   "Name": "Prescription Drug Plan",
-   "Code": "PDP"
+     "Prescription Drug Plan",
+   _ "PDP"
   89,
-   "Name": "Product Liability",
-   "Code": "PRODL"
+     "Product Liability",
+   _ "PRODL"
   137,
-   "Name": "Production plan hail ins",
-   "Code": "CHPPE"
+     "Production plan hail ins",
+   _ "CHPPE"
   44,
-   "Name": "Professional Liab",
-   "Code": "PL"
+     "Professional Liab",
+   _ "PL"
   155,
-   "Name": "Public Livery Insurance",
-   "Code": "PLI"
+     "Public Livery Insurance",
+   _ "PLI"
   49,
-   "Name": "Recreational Veh",
-   "Code": "RECV"
+     "Recreational Veh",
+   _ "RECV"
   150,
-   "Name": "Reinsurance",
-   "Code": "REIN"
+     "Reinsurance",
+   _ "REIN"
   73,
-   "Name": "Renters",
-   "Code": "RENT"
+     "Renters",
+   _ "RENT"
   107,
-   "Name": "Retirement",
-   "Code": "401K"
+     "Retirement",
+   _ "401K"
   168,
-   "Name": "Roadside Assistance",
-   "Code": "RDAST,
+     "Roadside Assistance",
+   _ "RDAST,
    Sched_Prpty_SCHPR,
    Senior_Health_SHLTH,
    Sheriff_Bonds_SBOND,

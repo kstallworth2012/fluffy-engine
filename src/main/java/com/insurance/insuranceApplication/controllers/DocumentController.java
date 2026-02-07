@@ -1,7 +1,8 @@
 package com.insurance.insuranceApplication.controllers;
 
+import org.springframework.web.bind.annotation.RestController;
 
-
+@RestController
 public class DocumentController{}
 
 // import com.insurance.insuranceApplication.services._____
