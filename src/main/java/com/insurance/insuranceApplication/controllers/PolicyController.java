@@ -13,9 +13,19 @@ public class PolicyController{
 	private PolicyService policyService;
 	
 	
+	
+	
+	public PolicyController(PolicyService _policyService) {
+		super();
+		this.policyService = _policyService;
+	}
+
+
+
+
 	@PostMapping(path="/policies")
 	public Policy createPolicy(@RequestBody Policy _policy) {
-		return null;
+		return policyService.createPolicy(null, _policy);
 	}
 	
 	

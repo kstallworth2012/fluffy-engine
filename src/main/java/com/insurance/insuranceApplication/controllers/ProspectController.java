@@ -14,9 +14,19 @@ public class ProspectController{
 	private ProspectService prospectService;
 	
 	
+	
+	
+	public ProspectController(ProspectService _prospectService) {
+		super();
+		this.prospectService = _prospectService;
+	}
+
+
+
+
 	@PostMapping(path="/Prospects")
 	public Prospect createProspect(@RequestBody Prospect _prospect) {
-		return null;
+		return prospectService.createProspect(null, _prospect);
 	}
 	
 }

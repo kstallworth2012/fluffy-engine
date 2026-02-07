@@ -1,9 +1,30 @@
 package com.insurance.insuranceApplication.controllers;
 
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.insurance.insuranceApplication.domain.Document;
+import com.insurance.insuranceApplication.services.DocumentService;
+
 @RestController
-public class DocumentController{}
+public class DocumentController{
+	
+	
+	
+	private DocumentService documentService;
+
+	public DocumentController(DocumentService _documentService) {
+		super();
+		this.documentService = _documentService;
+	} 
+	
+	@PostMapping(path="/documents")
+	public Document createDocument(@RequestBody Document _document) {
+		return documentService.createDocument(null, _document);
+	}
+	
+}
 
 // import com.insurance.insuranceApplication.services._____
 // import com.insurance.insuranceApplication.domain.dto._______

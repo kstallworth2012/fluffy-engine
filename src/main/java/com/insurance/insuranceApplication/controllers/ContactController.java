@@ -1,9 +1,33 @@
 package com.insurance.insuranceApplication.controllers;
 
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.insurance.insuranceApplication.domain.Contact;
+import com.insurance.insuranceApplication.services.ContactService;
+
 @RestController
-public class ContactController{}
+public class ContactController{
+	
+	
+	
+	private  ContactService contactService;
+
+	public ContactController(ContactService _contactService) {
+		super();
+		this.contactService = _contactService;
+	} 
+	
+	
+	@PostMapping(path="/contacts")
+	public Contact createContact(@RequestBody Contact _contact) {
+		return contactService.createContact(null, _contact);
+	}
+	
+	
+	
+}
 // import com.insurance.insuranceApplication.services._____
 // import com.insurance.insuranceApplication.domain.dto._______
 // import org.springframework.web.bind.annotation.RestController;

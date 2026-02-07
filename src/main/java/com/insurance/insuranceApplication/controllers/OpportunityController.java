@@ -1,9 +1,29 @@
 package com.insurance.insuranceApplication.controllers;
 
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.insurance.insuranceApplication.domain.Opportunity;
+import com.insurance.insuranceApplication.services.OpportunityService;
+
 @RestController
-public class OpportunityController{}
+public class OpportunityController{
+	
+	private OpportunityService opportunityService;
+
+	public OpportunityController(OpportunityService _opportunityService) {
+		super();
+		this.opportunityService = _opportunityService;
+	}
+	
+	@PostMapping(path="/opportunites")
+	public Opportunity createOpportunity(@RequestBody Opportunity _opp) {
+		return opportunityService.createOpportunity(null, _opp);
+	}
+	
+	
+}
 
 
 // import com.insurance.insuranceApplication.services._____
