@@ -1,9 +1,25 @@
 package com.insurance.insuranceApplication.controllers;
 
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.insurance.insuranceApplication.domain.Policy;
+import com.insurance.insuranceApplication.services.PolicyService;
+
 @RestController
-public class PolicyController{}
+public class PolicyController{
+	
+	private PolicyService policyService;
+	
+	
+	@PostMapping(path="/policies")
+	public Policy createPolicy(@RequestBody Policy _policy) {
+		return null;
+	}
+	
+	
+}
 
 // import com.insurance.insuranceApplication.services._____
 // import com.insurance.insuranceApplication.domain.dto._______

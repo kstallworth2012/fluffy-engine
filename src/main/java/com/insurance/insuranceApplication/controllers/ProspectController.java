@@ -1,9 +1,25 @@
 package com.insurance.insuranceApplication.controllers;
 
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.insurance.insuranceApplication.domain.Prospect;
+import com.insurance.insuranceApplication.services.ProspectService;
+
 @RestController
-public class ProspectController{}
+public class ProspectController{
+	
+	
+	private ProspectService prospectService;
+	
+	
+	@PostMapping(path="/Prospects")
+	public Prospect createProspect(@RequestBody Prospect _prospect) {
+		return null;
+	}
+	
+}
 
 // import com.insurance.insuranceApplication.services._____
 // import com.insurance.insuranceApplication.domain.dto._______
