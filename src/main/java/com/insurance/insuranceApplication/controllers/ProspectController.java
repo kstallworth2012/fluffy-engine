@@ -1,10 +1,14 @@
 package com.insurance.insuranceApplication.controllers;
 
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.insurance.insuranceApplication.domain.Prospect;
+import com.insurance.insuranceApplication.domain.dto.ProspectDto;
+import com.insurance.insuranceApplication.mappers.Mapper;
 import com.insurance.insuranceApplication.services.ProspectService;
 
 @RestController
@@ -12,21 +16,25 @@ public class ProspectController{
 	
 	
 	private ProspectService prospectService;
+	private Mapper<Prospect, ProspectDto> prospectMapper; 
 	
 	
 	
-	
-	public ProspectController(ProspectService _prospectService) {
+	public ProspectController(ProspectService _prospectService,Mapper<Prospect, ProspectDto> _prospectMappper) {
 		super();
 		this.prospectService = _prospectService;
+		this.prospectMapper = _prospectMappper; 
 	}
 
 
 
 
 	@PostMapping(path="/Prospects")
-	public Prospect createProspect(@RequestBody Prospect _prospect) {
-		return prospectService.createProspect(null, _prospect);
+	public ResponseEntity<ProspectDto> createProspect(@RequestBody ProspectDto _prospect) {
+		Prospect prospectEntity = prospectMapper.mapFrom(_prospect);
+		Prospect savedProspectEntity = prospectService.createProspect(null, prospectEntity);
+		
+		return new ResponseEntity<>(prospectMapper.mapTo(savedProspectEntity),HttpStatus.CREATED);
 	}
 	
 }

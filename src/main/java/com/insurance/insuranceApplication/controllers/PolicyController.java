@@ -1,31 +1,40 @@
 package com.insurance.insuranceApplication.controllers;
 
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.insurance.insuranceApplication.domain.Policy;
+import com.insurance.insuranceApplication.domain.dto.PolicyDto;
+import com.insurance.insuranceApplication.mappers.Mapper;
 import com.insurance.insuranceApplication.services.PolicyService;
 
 @RestController
 public class PolicyController{
 	
 	private PolicyService policyService;
+	private Mapper<Policy, PolicyDto> policyMapper;
 	
 	
 	
 	
-	public PolicyController(PolicyService _policyService) {
+	public PolicyController(PolicyService _policyService, Mapper<Policy, PolicyDto> _policyMapper) {
 		super();
 		this.policyService = _policyService;
+		this.policyMapper = _policyMapper;
 	}
 
 
 
 
 	@PostMapping(path="/policies")
-	public Policy createPolicy(@RequestBody Policy _policy) {
-		return policyService.createPolicy(null, _policy);
+	public ResponseEntity<PolicyDto> createPolicy(@RequestBody PolicyDto _policy) {
+		
+		Policy policyEntity = policyMapper.mapFrom(_policy);
+		Policy savedPolicyEntity = policyService.createPolicy(null, policyEntity);
+		return new ResponseEntity<>(policyMapper.mapTo(savedPolicyEntity),HttpStatus.CREATED);
 	}
 	
 	
