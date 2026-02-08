@@ -1,10 +1,14 @@
 package com.insurance.insuranceApplication.controllers;
 
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.insurance.insuranceApplication.domain.Document;
+import com.insurance.insuranceApplication.domain.dto.DocumentDto;
+import com.insurance.insuranceApplication.mappers.Mapper;
 import com.insurance.insuranceApplication.services.DocumentService;
 
 @RestController
@@ -13,15 +17,23 @@ public class DocumentController{
 	
 	
 	private DocumentService documentService;
-
-	public DocumentController(DocumentService _documentService) {
+	private Mapper<Document, DocumentDto> documentMapper; 
+	
+	
+	
+	public DocumentController(DocumentService _documentService, Mapper<Document, DocumentDto> _documentMapper) {
 		super();
 		this.documentService = _documentService;
+		this.documentMapper = _documentMapper; 
 	} 
 	
 	@PostMapping(path="/documents")
-	public Document createDocument(@RequestBody Document _document) {
-		return documentService.createDocument(null, _document);
+	public ResponseEntity<DocumentDto> createDocument(@RequestBody DocumentDto _document) {
+		
+		Document documentEntity = documentMapper.mapFrom(_document);
+		Document savedDocumentEntity = documentService.createDocument(null, documentEntity);
+		
+		return new ResponseEntity<>(documentMapper.mapTo(savedDocumentEntity),HttpStatus.CREATED);
 	}
 	
 }

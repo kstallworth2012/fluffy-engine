@@ -1,10 +1,14 @@
 package com.insurance.insuranceApplication.controllers;
 
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.insurance.insuranceApplication.domain.Opportunity;
+import com.insurance.insuranceApplication.domain.dto.OpportunityDto;
+import com.insurance.insuranceApplication.mappers.Mapper;
 import com.insurance.insuranceApplication.services.OpportunityService;
 
 @RestController
@@ -12,14 +16,19 @@ public class OpportunityController{
 	
 	private OpportunityService opportunityService;
 
-	public OpportunityController(OpportunityService _opportunityService) {
+    private Mapper<Opportunity, OpportunityDto> opportunityMapper; 
+	
+	public OpportunityController(OpportunityService _opportunityService,Mapper<Opportunity, OpportunityDto> _opportunityMapper) {
 		super();
 		this.opportunityService = _opportunityService;
+		this.opportunityMapper = _opportunityMapper; 
 	}
 	
 	@PostMapping(path="/opportunites")
-	public Opportunity createOpportunity(@RequestBody Opportunity _opp) {
-		return opportunityService.createOpportunity(null, _opp);
+	public ResponseEntity<OpportunityDto> createOpportunity(@RequestBody OpportunityDto _opp) {
+		Opportunity oppEntity = opportunityMapper.mapFrom(_opp);
+		Opportunity savdOppEnity = opportunityService.createOpportunity(null, oppEntity);
+		return new ResponseEntity<>(opportunityMapper.mapTo(savdOppEnity),HttpStatus.CREATED);
 	}
 	
 	
