@@ -4,11 +4,16 @@ import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -50,13 +55,24 @@ public class ApplicantController{
 			return new ResponseEntity<>(applicantMapper.mapTo(savedApplicantEntity), HttpStatus.CREATED);
 	}
 	
+//	@GetMapping(path="/")
+//	public List<ApplicantDto> listApplicants(){
+//		List<Applicant> applicants = appService.findAll();
+//		return applicants.stream()
+//				.map(applicantMapper::mapTo)
+//				.collect(Collectors.toList());
+//	}
+	
+	
+	//PAGEABLE
 	@GetMapping(path="/")
-	public List<ApplicantDto> listApplicants(){
-		List<Applicant> applicants = appService.findAll();
-		return applicants.stream()
-				.map(applicantMapper::mapTo)
-				.collect(Collectors.toList());
+	public Page<ApplicantDto> listApplicants(Pageable page){
+		Page<Applicant> applicants = appService.findAll(page);
+		return applicants.map(applicantMapper::mapTo);
 	}
+	
+	
+	
 	 
 	@GetMapping(path = "/{id}")
 	public ResponseEntity<ApplicantDto> getApplicant(@PathVariable("id") String id){
@@ -70,7 +86,52 @@ public class ApplicantController{
 		  }).orElse(new ResponseEntity<>(HttpStatus.NOT_FOUND));
 	}
 	
+	
+	@PutMapping(path="/{id}")
+	public ResponseEntity<ApplicantDto> fullUpdateApplicant(@PathVariable("id") String id, @RequestBody ApplicantDto appDto){
+		
+		if(!appService.isExists(id)) {
+			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+			
+		}
+		
+		appDto.setId(id);
+		Applicant applicantEntity = applicantMapper.mapFrom(appDto);
+		Applicant savedApplicantEntity = appService.save(applicantEntity);
+		
+		return new ResponseEntity<>(applicantMapper.mapTo(savedApplicantEntity), HttpStatus.OK); 
+		
+	}	
+	
+	
+	
+	@PatchMapping(path ="{/id}")
+	public ResponseEntity<ApplicantDto> partialUpdate(@PathVariable("id") String id, @RequestBody ApplicantDto appDto){
+		
+		if(!appService.isExists(id)) {
+			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+			
+		}
+		
+		Applicant applicantEntity = applicantMapper.mapFrom(appDto);
+		Applicant updatedApplicant = appService.partialUpdate(id, applicantEntity);
+		
+		return new ResponseEntity<>(applicantMapper.mapTo(updatedApplicant), HttpStatus.OK);
+		
+		
+		
+	}
+	
+	@DeleteMapping(path="/{id}")
+	public ResponseEntity<ApplicantDto> deleteApplicant(@PathVariable("id") String id) {
+		
+		appService.delete(id);
+		
+		return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+	}
+
 }
+
 /*(
 //find all members in all projects
 //@GetMapping("api/tasks")
