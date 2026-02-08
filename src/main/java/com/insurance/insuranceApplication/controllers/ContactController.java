@@ -6,9 +6,12 @@ import java.util.stream.Collectors;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -69,6 +72,55 @@ public class ContactController{
 		  }).orElse(new ResponseEntity<>(HttpStatus.NOT_FOUND));
 	}
 	 
+	
+	
+
+	@PutMapping(path="/{id}")
+	public ResponseEntity<ContactDto> fullUpdateContact(@PathVariable("id") String id, @RequestBody ContactDto contactDto){
+		
+		if(!contactService.isExists(id)) {
+			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+			
+		}
+		
+		contactDto.setId(id);
+		Contact contactEntity = contactMapper.mapFrom(contactDto);
+		Contact savedContactEntity = contactService.save(contactEntity);
+		
+		return new ResponseEntity<>(contactMapper.mapTo(savedContactEntity), HttpStatus.OK); 
+		
+	}	
+	
+
+	
+	
+	 	
+	@PatchMapping(path ="{/id}")
+	public ResponseEntity<ContactDto> partialUpdate(@PathVariable("id") String id, @RequestBody ContactDto contactDto){
+		
+		if(!contactService.isExists(id)) {
+			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+			
+		}
+		
+	 	Contact contactEntity = contactMapper.mapFrom(contactDto);
+		Contact updatedContact = contactService.partialUpdate(id, contactEntity);
+		
+		return new ResponseEntity<>(contactMapper.mapTo(updatedContact), HttpStatus.OK);
+		
+		
+		
+	}
+	
+	@DeleteMapping(path="/{id}")
+	public ResponseEntity<ContactDto> deleteApplicant(@PathVariable("id") String id) {
+		
+		contactService.delete(id);
+		
+		return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+	}
+	 
+	
 	
 	
 	
