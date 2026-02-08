@@ -1,9 +1,16 @@
 package com.insurance.insuranceApplication.controllers;
 
+import java.util.List;
+import java.util.Optional;
+import java.util.stream.Collectors;
+
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.insurance.insuranceApplication.domain.Applicant;
@@ -22,6 +29,7 @@ import com.insurance.insuranceApplication.services.ApplicantService;
 
 
 @RestController
+@RequestMapping("/api/applicants")
 public class ApplicantController{
 	
 	private ApplicantService appService;
@@ -34,15 +42,36 @@ public class ApplicantController{
 		this.applicantMapper = _applicantMapper;
 	} 
 	
-	@PostMapping(path="/applicants")
+	@PostMapping(path="/new-applicant")
 	public ResponseEntity<ApplicantDto> createApplicant(@RequestBody ApplicantDto _app) {
 			Applicant appEntity = applicantMapper.mapFrom(_app);
 			Applicant savedApplicantEntity = appService.createApplicant(null, appEntity);
 			
 			return new ResponseEntity<>(applicantMapper.mapTo(savedApplicantEntity), HttpStatus.CREATED);
 	}
+	
+	@GetMapping(path="/")
+	public List<ApplicantDto> listApplicants(){
+		List<Applicant> applicants = appService.findAll();
+		return applicants.stream()
+				.map(applicantMapper::mapTo)
+				.collect(Collectors.toList());
+	}
+	 
+	@GetMapping(path = "/{id}")
+	public ResponseEntity<ApplicantDto> getApplicant(@PathVariable("id") String id){
+		  Optional<Applicant> foundApplicant = appService.findOne(id);
+		  
+		  
+		  return foundApplicant.map(appEntity -> {
+			  		ApplicantDto appDto = applicantMapper.mapTo(appEntity);
+			  		return new ResponseEntity<>(appDto, HttpStatus.OK);
+					  
+		  }).orElse(new ResponseEntity<>(HttpStatus.NOT_FOUND));
+	}
+	
 }
-/*
+/*(
 //find all members in all projects
 //@GetMapping("api/tasks")
 @GetMapping("")

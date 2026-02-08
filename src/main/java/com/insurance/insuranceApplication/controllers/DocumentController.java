@@ -1,12 +1,20 @@
 package com.insurance.insuranceApplication.controllers;
 
+import java.util.List;
+import java.util.Optional;
+import java.util.stream.Collectors;
+
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.insurance.insuranceApplication.domain.Contact;
 import com.insurance.insuranceApplication.domain.Document;
+import com.insurance.insuranceApplication.domain.dto.ContactDto;
 import com.insurance.insuranceApplication.domain.dto.DocumentDto;
 import com.insurance.insuranceApplication.mappers.Mapper;
 import com.insurance.insuranceApplication.services.DocumentService;
@@ -35,6 +43,47 @@ public class DocumentController{
 		
 		return new ResponseEntity<>(documentMapper.mapTo(savedDocumentEntity),HttpStatus.CREATED);
 	}
+	
+	
+
+  	@GetMapping(path="/")
+	public List<DocumentDto> listDocuments(){
+		List<Document> documents = documentService.findAll();
+		return documents.stream()
+				.map(documentMapper::mapTo)
+				.collect(Collectors.toList());
+	}
+
+  	
+  
+   
+   	@GetMapping(path = "/{id}")
+	public ResponseEntity<DocumentDto> getDocument(@PathVariable("id") String id){
+		  Optional<Document> foundDocument = documentService.findOne(id);
+		  
+		  
+		  return foundDocument.map(documentEntity -> {
+			  DocumentDto documentDto = documentMapper.mapTo(documentEntity);
+			  		return new ResponseEntity<>(documentDto, HttpStatus.OK);
+					  
+		  }).orElse(new ResponseEntity<>(HttpStatus.NOT_FOUND));
+	}
+  
+  	
+	
+	/*
+	@GetMapping(path = "/{id}")
+	public ResponseEntity<DocumentDto> getDocument(@PathVariable("id") String id){
+		  Optional<Contact> foundDocument = documentService.findOne(id);
+		  
+		  
+		  return foundContact.map(contactEntity -> {
+			  		ContactDto contactDto = contactMapper.mapTo(contactEntity);
+			  		return new ResponseEntity<>(contactDto, HttpStatus.OK);
+					  
+		  }).orElse(new ResponseEntity<>(HttpStatus.NOT_FOUND));
+	}
+	 */
 	
 }
 
