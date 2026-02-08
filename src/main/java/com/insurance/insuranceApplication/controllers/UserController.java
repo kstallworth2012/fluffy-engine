@@ -1,10 +1,14 @@
 package com.insurance.insuranceApplication.controllers;
 
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.insurance.insuranceApplication.domain.User;
+import com.insurance.insuranceApplication.domain.dto.UserDto;
+import com.insurance.insuranceApplication.mappers.Mapper;
 import com.insurance.insuranceApplication.services.UserService;
 
 @RestController
@@ -12,21 +16,26 @@ public class UserController{
 	
 	
 	private UserService userService;
+	private Mapper<User,UserDto> userMapper; 
 	
 	
 	
-	
-	public UserController(UserService _userService) {
+	public UserController(UserService _userService,Mapper<User,UserDto> _userMapper) {
 		super();
 		this.userService = _userService;
+		this.userMapper = _userMapper; 
 	}
 
 
 
 
 	@PostMapping(path="/Users")
-	public User createUser(@RequestBody User _user) {
-		return userService.createUser(null, _user); 
+	public ResponseEntity<UserDto> createUser(@RequestBody UserDto _user) {
+		User userEntity = userMapper.mapFrom(_user);
+		User savedUserEntity = userService.createUser(null, userEntity);
+		
+		return new ResponseEntity<>(userMapper.mapTo(savedUserEntity), HttpStatus.CREATED);
+		
 	}
 	
 	

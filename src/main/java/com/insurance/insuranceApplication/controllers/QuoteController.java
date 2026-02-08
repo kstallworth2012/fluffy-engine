@@ -1,10 +1,14 @@
 package com.insurance.insuranceApplication.controllers;
 
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.insurance.insuranceApplication.domain.Quote;
+import com.insurance.insuranceApplication.domain.dto.QuoteDto;
+import com.insurance.insuranceApplication.mappers.Mapper;
 import com.insurance.insuranceApplication.services.QuoteService;
 
 @RestController
@@ -12,21 +16,25 @@ public class QuoteController{
 	
 	
 	private QuoteService quoteService;
+	private Mapper<Quote, QuoteDto> quoteMapper; 
 	
 	
 	
 	
-	public QuoteController(QuoteService _quoteService) {
+	public QuoteController(QuoteService _quoteService,Mapper<Quote, QuoteDto> _quoteMapper) {
 		super();
 		this.quoteService = _quoteService;
+		this.quoteMapper = _quoteMapper; 
 	}
 
 
 
 
 	@PostMapping(path = "/quotes")
-	public Quote createQuote(@RequestBody Quote _quote) {
-		return quoteService.createQuote(null, _quote); 
+	public ResponseEntity<QuoteDto> createQuote(@RequestBody QuoteDto _quote) {
+		Quote quoteEntity = quoteMapper.mapFrom(_quote);
+		Quote savedQuoteEntity = quoteService.createQuote(null, quoteEntity);
+		return new ResponseEntity<>(quoteMapper.mapTo(savedQuoteEntity),HttpStatus.CREATED);
 	}
 }
 
