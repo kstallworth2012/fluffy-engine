@@ -6,14 +6,19 @@ import java.util.stream.Collectors;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.insurance.insuranceApplication.domain.Applicant;
 import com.insurance.insuranceApplication.domain.Contact;
 import com.insurance.insuranceApplication.domain.Document;
+import com.insurance.insuranceApplication.domain.dto.ApplicantDto;
 import com.insurance.insuranceApplication.domain.dto.ContactDto;
 import com.insurance.insuranceApplication.domain.dto.DocumentDto;
 import com.insurance.insuranceApplication.mappers.Mapper;
@@ -70,6 +75,55 @@ public class DocumentController{
 	}
   
   	
+   
+	 
+
+	@PutMapping(path="/{id}")
+	public ResponseEntity<DocumentDto> fullUpdateDocument(@PathVariable("id") String id, @RequestBody DocumentDto docDto){
+		
+		if(documentService.isExists(id)) {
+			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+			
+		}
+		
+		docDto.setId(id);
+		Document documentEntity = documentMapper.mapFrom(docDto);
+		Document savedDocumentEntity = documentService.save(documentEntity);
+		
+		return new ResponseEntity<>(documentMapper.mapTo(savedDocumentEntity), HttpStatus.OK); 
+		
+	}	
+	
+	
+	
+	@PatchMapping(path ="{/id}")
+	public ResponseEntity<DocumentDto> partialUpdate(@PathVariable("id") String id, @RequestBody DocumentDto docDto){
+		
+		if(!documentService.isExists(id)) {
+			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+			
+		}
+		
+		Document documentEntity = documentMapper.mapFrom(docDto);
+		Document updatedDocument = documentService.partialUpdate(id, documentEntity);
+		
+		return new ResponseEntity<>(documentMapper.mapTo(updatedDocument), HttpStatus.OK);
+		
+		
+		
+	}
+	
+	@DeleteMapping(path="/{id}")
+	public ResponseEntity<DocumentDto> deleteDocument(@PathVariable("id") String id) {
+		
+		documentService.delete(id);
+		
+		return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+	}
+
+
+   	
+  
 	
 	/*
 	@GetMapping(path = "/{id}")
