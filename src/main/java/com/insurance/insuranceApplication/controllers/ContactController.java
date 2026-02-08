@@ -1,5 +1,7 @@
 package com.insurance.insuranceApplication.controllers;
 
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
@@ -26,11 +28,11 @@ public class ContactController{
 	
 	
 	@PostMapping(path="/contacts")
-	public ContactDto createContact(@RequestBody ContactDto _contact) {
+	public ResponseEntity<ContactDto> createContact(@RequestBody ContactDto _contact) {
 		
 		Contact contactEntity = contactMapper.mapFrom(_contact);
 		Contact savedContactEntity = contactService.createContact(null, contactEntity);
-		return contactMapper.mapTo(savedContactEntity);
+		return new ResponseEntity<>(contactMapper.mapTo(savedContactEntity), HttpStatus.CREATED) ;
 	}
 	
 	

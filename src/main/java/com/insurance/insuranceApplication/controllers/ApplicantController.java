@@ -1,5 +1,7 @@
 package com.insurance.insuranceApplication.controllers;
 
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
@@ -33,11 +35,11 @@ public class ApplicantController{
 	} 
 	
 	@PostMapping(path="/applicants")
-	public ApplicantDto createApplicant(@RequestBody ApplicantDto _app) {
+	public ResponseEntity<ApplicantDto> createApplicant(@RequestBody ApplicantDto _app) {
 			Applicant appEntity = applicantMapper.mapFrom(_app);
 			Applicant savedApplicantEntity = appService.createApplicant(null, appEntity);
 			
-			return applicantMapper.mapTo(savedApplicantEntity);
+			return new ResponseEntity<>(applicantMapper.mapTo(savedApplicantEntity), HttpStatus.CREATED);
 	}
 }
 /*
@@ -120,6 +122,62 @@ import org.springframework.boot.test.context.SpringBootTest;
 @DirtiestContext(classMode = DirtiestContext.ClassMode.AFTER_EACH_TEST_METHOD)
 @AutoConfigureMockMvc
 public class ApplicantControllerIntegrationTests{
+  
+    private MockMvc mockMvc; 
+    
+    private ObjectMapper objectMapper;
+    
+    
+    @AutoWired
+    public ApplicantControllerIntegrationTests(MockMvc mockMvc){
+    		this.mockMvc = mockMvc;
+    		this.objectMapper = new ObjectMapper();
+    		
+    		
+    	
+  }
+  
+  
+      @Test 
+      public void testCreateApplicantHttp201Created(){
+      
+      			Applicant testApplicant = TestDataUtil.createTestApplicantA();
+      			testApplicant.setId(null);
+      			
+      			
+      			String applicantJson = objectMapper.writeValueAsString(testApplicant);
+      			
+      			mockMvc.perform(
+      					MockMvcRequestBuilder.post("/applicants")
+      							.contentType(MediaType.APPLICATION_JSON)
+      							.content(applicantJson)
+      			).andExpect(
+      						MockMvcResultMatchers.status().isCreated()
+      				);
+      }
+  
+  
+  
+      @Test 
+      public void testCreateApplicantSaved() throws Exception{
+      
+      			Applicant testApplicant = TestDataUtil.createTestApplicantA();
+      			testApplicant.setId(null);
+      			
+      			
+      			String applicantJson = objectMapper.writeValueAsString(testApplicant);
+      			
+      			mockMvc.perform(
+      					MockMvcRequestBuilder.post("/applicants")
+      							.contentType(MediaType.APPLICATION_JSON)
+      							.content(applicantJson)
+      			).andExpect(
+      						MockMvcResultMatchers.jsonPath.("$.id").isNumber()
+      			).andExpect(
+      						MockMvcResultMatchers.jsonPath.("$.name").value("???")
+      				);
+      }
+  
   
 
  */
