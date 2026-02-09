@@ -1,12 +1,23 @@
 package com.insurance.insuranceApplication.controllers;
 
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PatchMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.insurance.insuranceApplication.domain.Applicant;
+import com.insurance.insuranceApplication.domain.Opportunity;
 import com.insurance.insuranceApplication.domain.Policy;
+import com.insurance.insuranceApplication.domain.dto.ApplicantDto;
+import com.insurance.insuranceApplication.domain.dto.OpportunityDto;
 import com.insurance.insuranceApplication.domain.dto.PolicyDto;
 import com.insurance.insuranceApplication.mappers.Mapper;
 import com.insurance.insuranceApplication.services.PolicyService;
@@ -27,15 +38,103 @@ public class PolicyController{
 	}
 
 
-
-
-	@PostMapping(path="/policies")
+	
+	@PostMapping(path="/new-policy")
 	public ResponseEntity<PolicyDto> createPolicy(@RequestBody PolicyDto _policy) {
-		
-		Policy policyEntity = policyMapper.mapFrom(_policy);
-		Policy savedPolicyEntity = policyService.createPolicy(null, policyEntity);
-		return new ResponseEntity<>(policyMapper.mapTo(savedPolicyEntity),HttpStatus.CREATED);
+			Policy policyEntity = policyMapper.mapFrom(_policy);
+			Policy savedPolicyEntity = policyService.createPolicy(null, policyEntity);
+			
+			return new ResponseEntity<>(policyMapper.mapTo(savedPolicyEntity), HttpStatus.CREATED);
 	}
+	
+//	@GetMapping(path="/")
+//	public List<PolicyDto> listPolicies(){
+//		List<Applicant> applicants = appService.findAll();
+//		return applicants.stream()
+//				.map(applicantMapper::mapTo)
+//				.collect(Collectors.toList());
+//	}
+	
+	
+	//PAGEABLE
+	@GetMapping(path="/")
+	public Page<PolicyDto> listApplicants(Pageable page){
+		Page<Policy> policies = policyService.findAll(page);
+		return  policies.map(policyMapper::mapTo);
+	}
+	
+	
+	
+
+
+//	@PostMapping(path="/policies")
+//	public ResponseEntity<PolicyDto> createPolicy(@RequestBody PolicyDto _policy) {
+//		
+//		Policy policyEntity = policyMapper.mapFrom(_policy);
+//		Policy savedPolicyEntity = policyService.createPolicy(null, policyEntity);
+//		return new ResponseEntity<>(policyMapper.mapTo(savedPolicyEntity),HttpStatus.CREATED);
+//	}
+//	
+	
+   	
+	 
+
+	@PutMapping(path="/{id}")
+	public ResponseEntity<PolicyDto> fullUpdateOpportunity(@PathVariable("id") String id, @RequestBody PolicyDto policyDto){
+		
+		if(policyService.isExists(id)) {
+			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+			
+		}
+		
+		policyDto.setId(id);
+		Policy policyEntity = policyMapper.mapFrom(policyDto);
+		Policy savedPolicyEntity = policyService.save(policyEntity);
+		
+		return new ResponseEntity<>(policyMapper.mapTo(savedPolicyEntity), HttpStatus.OK); 
+		
+	}	
+	
+	
+	
+	@PatchMapping(path ="{/id}")
+	public ResponseEntity<PolicyDto> partialUpdate(@PathVariable("id") String id, @RequestBody PolicyDto policyDto){
+		
+		if(!policyService.isExists(id)) {
+			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+			
+		}
+		
+		Policy policyEntity = policyMapper.mapFrom(policyDto);
+		Policy updatedPolicy = policyService.partialUpdate(id, policyEntity);
+		
+		return new ResponseEntity<>(policyMapper.mapTo(updatedPolicy), HttpStatus.OK);
+		
+		
+		
+	}
+	
+	@DeleteMapping(path="/{id}")
+	public ResponseEntity<PolicyDto> deleteDocument(@PathVariable("id") String id) {
+		
+		policyService.delete(id);
+		
+		return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+	}
+   	
+   	
+   	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	
 	
 }

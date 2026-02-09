@@ -1,12 +1,23 @@
 package com.insurance.insuranceApplication.controllers;
 
+import java.util.Optional;
+
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PatchMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.insurance.insuranceApplication.domain.Applicant;
 import com.insurance.insuranceApplication.domain.Prospect;
+import com.insurance.insuranceApplication.domain.dto.ApplicantDto;
 import com.insurance.insuranceApplication.domain.dto.ProspectDto;
 import com.insurance.insuranceApplication.mappers.Mapper;
 import com.insurance.insuranceApplication.services.ProspectService;
@@ -39,98 +50,82 @@ public class ProspectController{
 	
 }
 
-// import com.insurance.insuranceApplication.services._____
-// import com.insurance.insuranceApplication.domain.dto._______
-// import org.springframework.web.bind.annotation.RestController;
-// import org.springframework.web.bind.annotation.GetMapping;
-// import org.springframework.web.bind.annotation.PostMapping;
-// import org.springframework.web.bind.annotation.PutMapping;
-// import org.springframework.web.bind.annotation.DeleteMapping;
-// import org.springframework.web.bind.annotation.RequestMapping;
-// import org.springframework.web.bind.annotation.RestController;
-// import org.springframework.web.bind.annotation.PathVariable;
-// import org.springframework.web.bind.annotation.RequestBody; 
-// import org.springframework.web.bind.annotation.ResponseStatus;
-// import org.springframework.web.server.ResponseStatusException;
-// import jakarta.validation.Valid;
-// import org.springframework.http.HttpStatus;
-// import java.util.ArrayList; 
-// import java.util.List; 
-// import java.util.Optional;
 
+//	@GetMapping(path="/")
+//	public List<ProspectsDto> listProspects(){
+//		List<Prospect> prospects = prospectService.findAll();
+//		return prospects.stream()
+//				.map(prospectMapper::mapTo)
+//				.collect(Collectors.toList());
+//	}
+	
+	
+	//PAGEABLE
+	@GetMapping(path="/")
+	public Page<ProspectDto> listProspects(Pageable page){
+		Page<Prospect> prospects = prospectService.findAll(page);
+		return prospects.map(prospectMapper::mapTo);
+	}
+	
+	
+	
+	 
+	@GetMapping(path = "/{id}")
+	public ResponseEntity<ProspectDto> getProspect(@PathVariable("id") String id){
+		  Optional<Prospect> foundProspect = prospectService.findOne(id);
+		  
+		  
+		  return foundProspect.map(prospectEntity -> {
+			  		ProspectDto prospectDto = prospectMapper.mapTo(prospectEntity);
+			  		return new ResponseEntity<>(prospectDto, HttpStatus.OK);
+					  
+		  }).orElse(new ResponseEntity<>(HttpStatus.NOT_FOUND));
+	}
+	
+	
+	@PutMapping(path="/{id}")
+	public ResponseEntity<ProspectDto> fullUpdateProspect(@PathVariable("id") String id, @RequestBody ProspectDto prospectDto){
+		
+		if(!prospectService.isExists(id)) {
+			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+			
+		}
+		
+		prospectDto.setId(id);
+		Prospect prospectEntity = prospectMapper.mapFrom(prospectDto);
+		Prospect savedProspectEntity = prospectService.save(prospectEntity);
+		
+		return new ResponseEntity<>(prospectMapper.mapTo(savedProspectEntity), HttpStatus.OK); 
+		
+	}	
+	
+	
+	
+	@PatchMapping(path ="{/id}")
+	public ResponseEntity<ProspectDto> partialUpdate(@PathVariable("id") String id, @RequestBody ProspectDto prospectDto){
+		
+		if(!prospectService.isExists(id)) {
+			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+			
+		}
+		
+		Prospect prospectEntity = prospectMapper.mapFrom(prospectDto);
+		Prospect updatedProspect = prospectService.partialUpdate(id, prospectEntity);
+		
+		return new ResponseEntity<>(prospectMapper.mapTo(updatedProspect), HttpStatus.OK);
+		
+		
+		
+	}
+	
+	@DeleteMapping(path="/{id}")
+	public ResponseEntity<ProspectDto> deleteApplicant(@PathVariable("id") String id) {
+		
+		prospectService.delete(id);
+		
+		return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+			}
 
+ 
 
-
-// @RestController
-// @RequestMapping("/api/___") 
-
-
-
-
-// private ___Service ___Service;
-
-
-// public ____Controller(___Service _---service)
-// {
-
-//     this._____Service = _---service;
-// }
-// /*
-// //find all members in all projects
-// //@GetMapping("api/tasks")
-// @GetMapping("")
-// List<Tasks> findAll(){
-//    return .findAll(); 
-// }
-
-
-// @GetMapping("/{id}")
-// Tasks findById(@PathVariable Integer id){
-    
-// @Optional<> _ = TasksRepository.findById(id);
-// if(_.isEmpty()){
-
-// 	throw new RespponseStatusException(HttpStatus.NOT_FOUND,"Task not found.");
-// }
-//   return _member.get();
-
-//   //  return membersRepository.findById(id).get();
-
-// }
-
-// */
-
-
-// //post
-// @ResponseStatus(HttpStatus.CREATED)  //201 status
-// @PostMapping("")
-// public ______Dto create_____(@RequestBody ____Dto _-----DTO){
-
-//     return ______Service.create(_-----DTO);
-
-
-// }
-
-
-// /*
-// //put
-// @ResponseStatus(HttpStatus.NO_CONTENT)  //
-// @PutMapping("/{id}")
-// void updateTask(@RequestBody Object _object,Integer _id){
-
-//     Repository.update__(_object,_id);
-
-
-// }
-
-// //delete
-// @ResponseStatus(HttpStatus.NO_CONTENT)  //
-// @PutMapping("/{id}")
-// void delete__(@RequestBody Object _object ,Integer _id){
-
-//     //.delete(_,_id);
-
-
-// }
-// */
-// }
+	}
