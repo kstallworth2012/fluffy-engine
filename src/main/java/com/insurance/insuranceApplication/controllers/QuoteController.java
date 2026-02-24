@@ -92,7 +92,7 @@ public class QuoteController{
 			
 		}
 		
-		quoteDto.setId(id);
+//		quoteDto.setId(id);
 		Quote quoteEntity = quoteMapper.mapFrom(quoteDto);
 		Quote savedQuoteEntity = quoteService.save(quoteEntity);
 		
@@ -110,7 +110,7 @@ public class QuoteController{
 			
 		}
 		
-		Quote quoteEntity = quoteMapper.mapFrom(appDto);
+		Quote quoteEntity = quoteMapper.mapFrom(quoteDto);
 		Quote updatedQuote = quoteService.partialUpdate(id, quoteEntity);
 		
 		return new ResponseEntity<>(quoteMapper.mapTo(updatedQuote), HttpStatus.OK);

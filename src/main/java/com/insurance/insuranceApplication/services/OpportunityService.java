@@ -29,5 +29,7 @@ public interface OpportunityService{
 	Opportunity partialUpdate(String opportunity_id, Opportunity opportunityEntity );
 
 	void delete(String opportunity_id);
+
+	Opportunity save(Opportunity opportunityEntity);
 	
 }

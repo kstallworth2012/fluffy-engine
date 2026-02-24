@@ -20,7 +20,7 @@ import org.springframework.stereotype.Service;
 public class CommercialApplicantServiceImpl implements CommercialApplicantService{
 
 	
-	
+	  
 	public CommercialApplicantServiceImpl() {
 		super();
 		// TODO Auto-generated constructor stub

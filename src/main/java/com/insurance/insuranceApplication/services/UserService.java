@@ -24,6 +24,8 @@ public interface UserService{
 	User partialUpdate(String user_id, User userEntity );
 
 	void delete(String user_id);
+
+	User save(User userEntity);
 	
 	
 	

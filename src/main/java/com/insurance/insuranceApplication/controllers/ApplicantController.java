@@ -95,7 +95,7 @@ public class ApplicantController{
 			
 		}
 		
-		appDto.setId(id);
+		//appDto.setId(id);
 		Applicant applicantEntity = applicantMapper.mapFrom(appDto);
 		Applicant savedApplicantEntity = appService.save(applicantEntity);
 		

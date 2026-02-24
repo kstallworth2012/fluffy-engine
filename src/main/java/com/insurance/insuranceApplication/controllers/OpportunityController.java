@@ -82,7 +82,7 @@ public class OpportunityController{
 			
 		}
 		
-		oopDto.setId(id);
+//		oopDto.setId(id);
 		Opportunity opportunityEntity = opportunityMapper.mapFrom(oopDto);
 		Opportunity savedOpportunityEntity = opportunityService.save(opportunityEntity);
 		

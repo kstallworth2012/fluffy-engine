@@ -29,6 +29,8 @@ public interface QuoteService{
 	Quote partialUpdate(String quote_id, Quote quoteEntity );
 
 	void delete(String quote_id);
+
+	Quote save(Quote quoteEntity);
 	
 	
 	
